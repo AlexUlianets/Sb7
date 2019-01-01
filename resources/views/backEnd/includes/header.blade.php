@@ -37,6 +37,7 @@ if (Auth::user()->connect_email != "" && Auth::user()->connect_password) {
             <?php
             $alerts = count(Helper::webmailsAlerts()) + count(Helper::eventsAlerts());
             ?>
+            <!-- 
             @if($alerts >0)
                 <li class="nav-item dropdown pos-stc-xs">
                     <a class="nav-link" href data-toggle="dropdown">
@@ -82,7 +83,7 @@ if (Auth::user()->connect_email != "" && Auth::user()->connect_password) {
                         </div>
                     </div>
                 </li>
-            @endif
+            @endif -->
             <li class="nav-item dropdown">
                 <a class="nav-link clear" href data-toggle="dropdown">
                   <span class="avatar w-32">
@@ -97,7 +98,7 @@ if (Auth::user()->connect_email != "" && Auth::user()->connect_password) {
                   </span>
                 </a>
                 <div class="dropdown-menu pull-right dropdown-menu-scale">
-                    @if(Helper::GeneralWebmasterSettings("inbox_status"))
+                    <!-- @if(Helper::GeneralWebmasterSettings("inbox_status"))
                         @if(@Auth::user()->permissionsGroup->inbox_status)
                             <a class="dropdown-item"
                                href="{{ route('webmails') }}"><span>{{ trans('backLang.siteInbox') }}</span>
@@ -106,7 +107,7 @@ if (Auth::user()->connect_email != "" && Auth::user()->connect_password) {
                                 @endif
                             </a>
                         @endif
-                    @endif
+                    @endif -->
                     @if( $connectEmailAddress !="" )
                         <a class="dropdown-item" target="_blank"
                            href="<?php echo 'http' . ($useHTTPS ? 's' : '') . '://' . $connectDomainURL . ':' . ($useHTTPS ? '2096' : '2095') . '/login/?user=' . $connectEmailAddress . '&pass=' . $connectEmailPassword . '&failurl=http://' . $connectDomainURL; ?>"><span>{{ trans('backLang.openWebmail') }}</span>
@@ -139,7 +140,7 @@ if (Auth::user()->connect_email != "" && Auth::user()->connect_password) {
 
         <!-- navbar collapse -->
         <div class="collapse navbar-toggleable-sm" id="collapse">
-            {{Form::open(['route'=>['adminFind'],'method'=>'POST', 'role'=>'search', 'class' => "navbar-form form-inline pull-right pull-none-sm navbar-item v-m" ])}}
+        <!--    {{Form::open(['route'=>['adminFind'],'method'=>'POST', 'role'=>'search', 'class' => "navbar-form form-inline pull-right pull-none-sm navbar-item v-m" ])}}
 
             <div class="form-group l-h m-a-0">
                 <div class="input-group input-group-sm"><input type="text" name="q" class="form-control p-x b-a rounded"
@@ -148,14 +149,14 @@ if (Auth::user()->connect_email != "" && Auth::user()->connect_password) {
                             class="input-group-btn"><button type="submit" class="btn white b-a rounded no-shadow"><i
                                     class="fa fa-search"></i></button></span></div>
             </div>
-        {{Form::close()}}
+        {{Form::close()}} -->
         <!-- link and dropdown -->
             <ul class="nav navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href data-toggle="dropdown">
+                    <!-- <a class="nav-link" href data-toggle="dropdown">
                         <i class="fa fa-fw fa-plus text-muted"></i>
                         <span>{{ trans('backLang.new') }} </span>
-                    </a>
+                    </a> -->
                     <div class="dropdown-menu dropdown-menu-scale">
                         <?php
                         $data_sections_arr = explode(",", Auth::user()->permissionsGroup->data_sections);

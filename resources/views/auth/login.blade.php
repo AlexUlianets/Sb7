@@ -10,10 +10,10 @@
     <div class="center-block w-xxl w-auto-xs p-y-md">
         <div class="navbar">
             <div class="pull-center">
-                <div>
+                <!-- <div>
                     <a class="navbar-brand"><img src="{{ URL::to('backEnd/assets/images/logo.png') }}" alt="."> <span
                                 class="hidden-folded inline">{{ trans('backLang.control') }}</span></a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="p-a-md box-color r box-shadow-z1 text-color">

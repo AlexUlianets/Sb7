@@ -170,7 +170,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 dker">
+                    <!-- <div class="col-sm-4 dker">
                         <div class="box-header">
                             <h3>{{ trans('backLang.reports') }}</h3>
                         </div>
@@ -191,12 +191,12 @@
                             <a href="{{ route('visitors') }}"
                                class="btn btn-sm btn-outline rounded b-info">{{ trans('backLang.visitorsAnalyticsVisitorsHistory') }}</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-xl-4">
+            <!-- <div class="col-md-12 col-xl-4">
                 <div class="box">
                     <div class="box-header">
                         <h3>{{ trans('backLang.visitorsRate') }}</h3>
@@ -225,7 +225,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-12 col-xl-4">
                 <div class="box" style="min-height: 300px">
                     <div class="box-header">
@@ -303,7 +303,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-12 col-xl-4">
+            <!-- <div class="col-md-12 col-xl-4">
                 <div class="box light lt" style="min-height: 300px">
                     <div class="box-header">
                         <h3> {{ trans('backLang.todayByCountry') }}</h3>
@@ -383,7 +383,7 @@
                         </ul>
                     @endif
                 </div>
-            </div>
+            </div> -->
 
         </div>
         <div class="row">
@@ -410,7 +410,7 @@
             }
             ?>
 
-            @if(Helper::GeneralWebmasterSettings("inbox_status"))
+            <!-- @if(Helper::GeneralWebmasterSettings("inbox_status"))
                 @if(@Auth::user()->permissionsGroup->inbox_status)
                     <div class="col-md-12 col-xl-{{$col_width}}">
                         <div class="box m-b-0" style="min-height: 370px">
@@ -497,8 +497,9 @@
                         </div>
                     </div>
                 @endif
-            @endif
-            @if(Helper::GeneralWebmasterSettings("calendar_status"))
+            @endif -->
+             
+            <!-- @if(Helper::GeneralWebmasterSettings("calendar_status"))
                 @if(@Auth::user()->permissionsGroup->calendar_status)
                     <div class="col-md-12 col-xl-{{$col_width}}">
                         <div class="box m-b-0" style="min-height: 370px">
@@ -553,8 +554,9 @@
                         </div>
                     </div>
                 @endif
-            @endif
-            @if(Helper::GeneralWebmasterSettings("newsletter_status"))
+            @endif -->
+            
+            <!-- @if(Helper::GeneralWebmasterSettings("newsletter_status"))
                 @if(@Auth::user()->permissionsGroup->newsletter_status)
                     <div class="col-md-12 col-xl-{{$col_width}}">
                         <div class="box m-b-0" style="min-height: 370px">
@@ -604,7 +606,7 @@
                         </div>
                     </div>
                 @endif
-            @endif
+            @endif -->
         </div>
     </div>
 

@@ -16,10 +16,10 @@ $urlAfterRoot = substr($fullPagePath, strpos($fullPagePath, env('BACKEND_PATH'))
     <div class="left navside dark dk" layout="column">
         <div class="navbar navbar-md no-radius">
             <!-- brand -->
-            <a class="navbar-brand" href="{{ route('adminHome') }}">
+            <!-- <a class="navbar-brand" href="{{ route('adminHome') }}">
                 <img src="{{ URL::to('backEnd/assets/images/logo.png') }}" alt="Control">
                 <span class="hidden-folded inline">{{ trans('backLang.control') }}</span>
-            </a>
+            </a> -->
             <!-- / brand -->
         </div>
         <div flex class="hide-scroll">
