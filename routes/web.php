@@ -319,7 +319,7 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
 
 // RESTful API routes
 Route::Group(['prefix' => '/api/v1'], function () {
-    Route::get('/', 'APIsController@api');
+    // Route::get('/', 'APIsController@api');
     // general
     Route::get('/website/status', 'APIsController@website_status');
     Route::get('/website/info/{lang?}', 'APIsController@website_info');
@@ -362,7 +362,9 @@ Route::Group(['prefix' => '/api/v1'], function () {
 Route::get('/sitemap.xml', 'SiteMapController@siteMap')->name('siteMap');
 Route::get('/{lang}/sitemap', 'SiteMapController@siteMap')->name('siteMapByLang');
 
-Route::get('/', 'FrontendHomeController@HomePage')->name('Home');
+Route::get('/', 'FrontendHomeController@RemasteredPage')->name('Home');
+
+// Route::get('/', 'FrontendHomeController@HomePage')->name('Home');
 // ../home url
 Route::get('/home', 'FrontendHomeController@HomePage')->name('HomePage');
 Route::get('/{lang?}/home', 'FrontendHomeController@HomePageByLang')->name('HomePageByLang');

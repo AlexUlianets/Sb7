@@ -170,6 +170,16 @@ class FrontendHomeController extends Controller
     }
 
     /**
+     * Dispaly default page with admin url
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function RemasteredPage()
+    {
+        return "<a href='/admin'>Admin page</a>";
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

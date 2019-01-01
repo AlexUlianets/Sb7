@@ -50,6 +50,7 @@
                 {{Form::open(['route'=>'usersUpdateAll','method'=>'post'])}}
                 <div class="table-responsive">
                     <table class="table table-striped  b-t">
+
                         <thead>
                         <tr>
                             <th style="width:20px;">
@@ -177,7 +178,7 @@
                                 </button>
                             @endif
                         </div>
-
+                        
                         <div class="col-sm-3 text-center">
                             <small class="text-muted inline m-t-sm m-b-sm">{{ trans('backLang.showing') }} {{ $Users->firstItem() }}
                                 -{{ $Users->lastItem() }} {{ trans('backLang.of') }}

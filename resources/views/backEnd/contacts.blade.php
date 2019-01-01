@@ -33,12 +33,13 @@
                                 <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Link URL</th>
+                                    <th>Name</th>
                                     <th>Email</th>
                                     <th>Type</th>
-                                    <th>Gender</th>
                                     <th class="text-center" style="width:50px;">Status</th>
+                                    <th>Gender</th>
                                     <th class="text-center" style="width:100px;">Options</th>
+                                    <th class="text-center" style="width: 50px;">Created At</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -63,12 +64,15 @@
                                             <td>
                                                 {{ $Contact->type=='1'?'Free':'Premium' }}
                                             </td>
-                                            <td>
-                                                {{ $Contact->gender=='1'?'Male':'Female' }}
-                                            </td>
+                                            
                                             <td class="text-center">
                                                 <i class="fa {{$Contact->status==1?'fa-check text-success':'fa-close text-danger'}} inline"></i>
                                             </td>
+
+                                            <td>
+                                                {{ $Contact->gender=='1'?'Male':'Female' }}
+                                            </td>
+
                                             <td class="text-center">
                                                 <a class="btn btn-sm success"  href="{{ route("membersUpdate",["id"=>$Contact->id]) }}">
                                                     <small><i class="material-icons">
@@ -76,6 +80,10 @@
                                                     </small>
                                                 </a>
 
+                                            </td>
+
+                                            <td class="text-center">
+                                                
                                             </td>
                                         </tr>
                                     @endforeach

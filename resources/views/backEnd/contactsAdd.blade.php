@@ -63,6 +63,14 @@
                                                     {!! Form::text('first_name',$ContactToEdit->first_name, array('placeholder' =>trans('backLang.firstName'),'class' => 'form-control inline','id'=>'first_name','required'=>'')) !!}
                                                 </div>
                                             </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 form-control-label">Username</label>
+                                                <div class="col-sm-9">
+                                                    {!! Form::text('last_name',$ContactToEdit->last_name, array('placeholder' =>trans('backLang.firstName'),'class' => 'form-control inline','id'=>'last_name','required'=>'')) !!}
+                                                </div>
+                                            </div>
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Role</label>
                                                 <div class="col-sm-9">
@@ -79,12 +87,7 @@
                                                         </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 form-control-label">Username</label>
-                                                <div class="col-sm-9">
-                                                    {!! Form::text('last_name',$ContactToEdit->last_name, array('placeholder' =>trans('backLang.firstName'),'class' => 'form-control inline','id'=>'last_name','required'=>'')) !!}
-                                                </div>
-                                            </div>
+                                            
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">{{ trans('backLang.contactPhone') }}</label>
                                                 <div class="col-sm-6">
