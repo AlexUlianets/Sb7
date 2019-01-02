@@ -6,6 +6,7 @@
             <button class="btn btn-info m-a pull-right" onclick="window.location.href='{{ route("membersUpdate") }}'">ADD NEW</button>
             <div class="p-a-md dker">
                 <h5>Members</h5>
+                <a href="#">Shox x entries</a>
             </div>
             <div class="row-col row-col-xs">
                 <!-- column -->
@@ -74,16 +75,29 @@
                                             </td>
 
                                             <td class="text-center">
+
                                                 <a class="btn btn-sm success"  href="{{ route("membersUpdate",["id"=>$Contact->id]) }}">
                                                     <small><i class="material-icons">
                                                             </i> Edit
                                                     </small>
                                                 </a>
 
+                                                <a class="btn btn-sm danger" href="{{ route("contactsDestroy", ["id" => $Contact->id]) }}">
+                                                    <small>
+                                                        <i class="material-icons">
+                                                            </i> Delete
+                                                    </small>
+                                                </a>
+
+                                                <a class="btn btn-sm warning">
+                                                    <small>
+                                                        <i class="material-icons"></i> Ban
+                                                    </small>
+                                                </a>
                                             </td>
 
                                             <td class="text-center">
-                                                
+                                                {{ $Contact->created_at }}
                                             </td>
                                         </tr>
                                     @endforeach
