@@ -422,6 +422,7 @@ class ContactsController extends Controller
         $Contact->photo = $fileFinalName_ar;
         $Contact->notes = $request->notes;
         $Contact->status = 1;
+        $Contact->ban = 0;
         $Contact->created_by = Auth::user()->id;
         $Contact->save();
 
@@ -551,6 +552,7 @@ class ContactsController extends Controller
             }
 
             $Contact->status = $request->status;
+            $Contact->ban = 0;
             $Contact->updated_by = Auth::user()->id;
             $Contact->save();
             return redirect()->action('ContactsController@index')->with('ContactToEdit', $Contact)->with('doneMessage2',
@@ -670,5 +672,54 @@ class ContactsController extends Controller
         return redirect()->action('ContactsController@index')->with('doneMessage', trans('backLang.saveDone'));
     }
 
+    /**
+     *  This function ban user in the web-site
+     *  @param  int $id
+     *  @return \Illuminate\Http\Response
+     */
+    public function banUser($id)
+    {
+        if (!@Auth::user()->permissionsGroup->delete_status) {
+            return Redirect::to(route('NoPermission'))->send();
+        }
+
+        if (@Auth::user()->permissionsGroup->view_status) {
+            $Contact = Contact::where('created_by', '=', Auth::user()->id)->find($id);
+        } else {
+            $Contact = Contact::find($id);
+        }
+
+        if ( ! empty( $Contact ) ) {
+            $Contact->ban = 1;
+            $Contact->save();
+        }
+
+        return redirect()->action('ContactsController@index');
+    }
+
+    /**
+     *  This function unban user in the web-site
+     *  @param  int $id
+     *  @return \Illuminate\Http\Response
+     */
+    public function unbanUser($id)
+    {
+        if (!@Auth::user()->permissionsGroup->delete_status) {
+            return Redirect::to(route('NoPermission'))->send();
+        }
+
+        if (@Auth::user()->permissionsGroup->view_status) {
+            $Contact = Contact::where('created_by', '=', Auth::user()->id)->find($id);
+        } else {
+            $Contact = Contact::find($id);
+        }
+
+        if ( ! empty( $Contact ) ) {
+            $Contact->ban = 0;
+            $Contact->save();
+        }
+
+        return redirect()->action('ContactsController@index');
+    }
 
 }

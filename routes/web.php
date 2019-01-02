@@ -228,6 +228,8 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::post('/members/{id}/update', 'ContactsController@update')->name('contactsUpdate');
     Route::get('/members/destroy/{id}', 'ContactsController@destroy')->name('contactsDestroy');
     Route::post('/members/updateAll', 'ContactsController@updateAll')->name('contactsUpdateAll');
+    Route::get('/members/ban/{id}', 'ContactsController@banUser')->name('contactsBan');
+    Route::get('/members/unban/{id}', 'ContactsController@unbanUser')->name('contactsUnban');
 
     // Categories Groups
     Route::post('/categories/storeGroup', 'categoriesController@storeGroup')->name('categoriesStoreGroup');

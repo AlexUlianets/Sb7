@@ -89,11 +89,21 @@
                                                     </small>
                                                 </a>
 
-                                                <a class="btn btn-sm warning">
-                                                    <small>
-                                                        <i class="material-icons"></i> Ban
-                                                    </small>
-                                                </a>
+                                                @if ( $Contact->ban != 1 )
+                                                    <a class="btn btn-sm warning" href="{{ route("contactsBan", ["id" => $Contact->id ]) }}">
+                                                        <small>
+                                                            <i class="material-icons"></i> Ban
+                                                        </small>
+                                                    </a>
+                                                @elseif ( $Contact->ban == 1 )
+                                                    <a class="btn btn btn-sm primary" href="{{ route("contactsUnban", ["id" => $Contact->id ]) }}">
+                                                        <small>
+                                                            Unban
+                                                        </small>
+                                                    </a>
+                                                @endif
+
+
                                             </td>
 
                                             <td class="text-center">

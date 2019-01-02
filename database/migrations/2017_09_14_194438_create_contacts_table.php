@@ -33,6 +33,7 @@ class CreateContactsTable extends Migration
             $table->string('twitter_id')->nullable();
             $table->string('google_id')->nullable();
             $table->tinyInteger('status');
+            $table->tinyInteger('ban');
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
