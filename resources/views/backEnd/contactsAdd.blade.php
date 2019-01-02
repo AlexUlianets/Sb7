@@ -297,24 +297,7 @@
                                 <div class="row-inner">
                                     <div class="padding">
                                         {{Form::open(['route'=>['contactsStore'],'method'=>'POST', 'files' => true ])}}
-                                        <div class="row-col h-auto m-b-1">
-                                            <div class="col-sm-3">
-                                                <div class="avatar w-64 inline">
-                                                    <img id="photo_preview"
-                                                         src="{{ URL::to('uploads/contacts/profile.jpg') }}"
-                                                         style="opacity: 0.2">
-                                                </div>
-                                                <div class="form-file">
-                                                    <input id="photo_file" type="file" name="file" accept="image/*">
-                                                    <button class="btn white btn-sm">
-                                                        <small>
-                                                            <small>{{ trans('backLang.selectFile') }} ..</small>
-                                                        </small>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
+                                        
                                         <!-- fields -->
                                         <div class="form-horizontal">
                                            <div class="form-group row">
@@ -323,27 +306,44 @@
                                                  <input placeholder="First Name" class="form-control inline has-value" id="first_name" required="" name="first_name" type="text" value="wdqd">
                                               </div>
                                            </div>
-                                           <div class="form-group row">
-                                              <label class="col-sm-3 form-control-label">Role</label>
-                                              <div class="col-sm-9">
-                                                <select name="group_id" id="country_id"
-                                                        class="form-control c-select w-sm inline"
-                                                        style="vertical-align: bottom;">
-                                                    <option value="">- - Role - -
-                                                    </option>
-                                                    @foreach ($ContactsGroups as $Group)
-                                                        <option value="{{ $Group->id  }}" {{ ($Group->id == $group_id) ? "selected='selected'":""  }}>{{ $Group->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                              </div>
-                                           </div>
+                                           
                                            <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Userame</label>
                                               <div class="col-sm-9">
                                                  <input placeholder="First Name" class="form-control inline has-value" id="last_name" required="" name="last_name" type="text" value="">
                                               </div>
                                            </div>
+
                                            <div class="form-group row">
+                                              <label class="col-sm-3 form-control-label">Email</label>
+                                              <div class="col-sm-6">
+                                                 <input placeholder="" class="form-control has-value" id="email" required="" name="email" type="email" value="">
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                            </div>
+
+                                            <div class="form-group row">
+                                              <label class="col-sm-3 form-control-label">Gender</label>
+                                              <div class="col-sm-9">
+                                                 <div class="radio">
+                                                    <label class="ui-check ui-check-md">
+                                                    <input id="gender1" class="has-value" checked="checked" name="gender" type="radio" value="1">
+                                                    <i class="dark-white"></i>
+                                                    Male
+                                                    </label>
+                                                    &nbsp; &nbsp;
+                                                    <label class="ui-check ui-check-md">
+                                                    <input id="gender3" class="has-value" name="gender" type="radio" value="2">
+                                                    <i class="dark-white"></i>
+                                                    Female
+                                                    </label>
+                                                 </div>
+                                              </div>
+                                            </div>
+                                            
+                                            <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Phone</label>
                                               <div class="col-sm-6">
                                                  <input placeholder="" class="form-control has-value" id="phone" name="phone" type="text" value="">
@@ -356,28 +356,16 @@
                                                  </small>
                                                  </a>
                                               </div> -->
-                                           </div>
-                                           <div class="form-group row">
-                                              <label class="col-sm-3 form-control-label">Email</label>
+                                           </div>                                           
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 form-control-label">Address</label>
                                               <div class="col-sm-6">
-                                                 <input placeholder="" class="form-control has-value" id="email" required="" name="email" type="email" value="">
+                                                 <input placeholder="" class="form-control has-value" id="address" name="address" type="text" value="">
                                               </div>
-                                              <!-- <div class="col-sm-3">
-                                                 <a href="http://lotus.kl.com.ua/smartend/public/admin/webmails/create/new/email/qwdqw@ad.qwdqw" style="width: 100%" class="btn white pull-right">
-                                                 <small>
-                                                 <i class="material-icons">
-                                                 </i> Send Email
-                                                 </small>
-                                                 </a>
-                                              </div> -->
-                                           </div>
-                                           <div class="form-group row">
-                                              <label class="col-sm-3 form-control-label">Password</label>
-                                              <div class="col-sm-9">
-                                                 <input name="company" type="password" value="">
-                                              </div>
-                                           </div>
-                                           <div class="form-group row">
+                                            </div>
+
+                                            <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Country</label>
                                               <div class="col-sm-6">
                                                  <select name="country_id" id="country_id" class="form-control c-select">
@@ -397,11 +385,67 @@
                                                         ?>
                                                         <option value="{{ $country->id  }}">{{ $title }}</option>
                                                     @endforeach
+
+                                                </select>
+                                                
+                                                <input placeholder="City" class="form-control inline has-value" id="" required="" name="city" type="text" value="">
+                                                    
+                                              </div>
+
+                                            <div class="row-col h-auto m-b-1" style="padding-top: 20px;padding-left: 20px;">
+                                                <div class="col-sm-3">
+                                                    <label class="col-sm-3 form-control-label">Avatar</label>
+                                                <div class="avatar w-64 inline">
+                                                    <img id="photo_preview"
+                                                         src="{{ URL::to('uploads/contacts/profile.jpg') }}"
+                                                         style="opacity: 0.2">
+                                                    
+                                                        <div class="form-file">
+                                                        <input id="photo_file" type="file" name="file" accept="image/*">
+                                                            <button class="btn white btn-sm">
+                                                                <small>
+                                                                    <small>{{ trans('backLang.selectFile') }} ..    </small>
+                                                                </small>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>                                           
+                                           
+                                              <!-- <div class="col-sm-3">
+                                                 <a href="http://lotus.kl.com.ua/smartend/public/admin/webmails/create/new/email/qwdqw@ad.qwdqw" style="width: 100%" class="btn white pull-right">
+                                                 <small>
+                                                 <i class="material-icons">
+                                                 </i> Send Email
+                                                 </small>
+                                                 </a>
+                                              </div> -->
+                                           </div>
+                                           <div class="form-group row">
+                                              <label class="col-sm-3 form-control-label">Password</label>
+                                              <div class="col-sm-9">
+                                                 <input name="company" type="password" value="">
+                                              </div>
+                                           </div>
+
+                                           <div class="form-group row">
+                                              <br />
+                                              <label class="col-sm-3 form-control-label">Role</label>
+                                              <div class="col-sm-6">
+                                                <select name="group_id" id="country_id"
+                                                        class="form-control c-select w-sm inline"
+                                                        style="vertical-align: bottom;">
+                                                    <option value="">- - Role - -
+                                                    </option>
+                                                    @foreach ($ContactsGroups as $Group)
+                                                        <option value="{{ $Group->id  }}" {{ ($Group->id == $group_id) ? "selected='selected'":""  }}>{{ $Group->name }}</option>
+                                                    @endforeach
                                                 </select>
                                               </div>
-                                              <div class="col-sm-3">
-                                                 <input placeholder="City" class="form-control" id="city" name="city" type="text">
-                                              </div>
+                                           </div>
+                                           
+
+                                              
                                            </div>
                                            <!-- <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Notes</label>
@@ -451,24 +495,9 @@
                                                  </div>
                                               </div>
                                            </div>
-                                           <div class="form-group row">
-                                              <label class="col-sm-3 form-control-label">Gender</label>
-                                              <div class="col-sm-9">
-                                                 <div class="radio">
-                                                    <label class="ui-check ui-check-md">
-                                                    <input id="gender1" class="has-value" checked="checked" name="gender" type="radio" value="1">
-                                                    <i class="dark-white"></i>
-                                                    Male
-                                                    </label>
-                                                    &nbsp; &nbsp;
-                                                    <label class="ui-check ui-check-md">
-                                                    <input id="gender3" class="has-value" name="gender" type="radio" value="2">
-                                                    <i class="dark-white"></i>
-                                                    Female
-                                                    </label>
-                                                 </div>
-                                              </div>
-                                           </div>
+                                           
+                                           
+                                           
                                            <div class="form-group row">
                                                 <div class="col-sm-offset-3 col-sm-9">
                                                     <button type="submit" class="btn btn-primary"><i
@@ -494,6 +523,10 @@
     <style>
         .app-footer {
             display: none;
+        }
+
+        body {
+            background-color: white;
         }
     </style>
     <script type="text/javascript">

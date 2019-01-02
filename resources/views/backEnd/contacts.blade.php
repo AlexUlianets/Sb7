@@ -6,7 +6,14 @@
             <button class="btn btn-info m-a pull-right" onclick="window.location.href='{{ route("membersUpdate") }}'">ADD NEW</button>
             <div class="p-a-md dker">
                 <h5>Members</h5>
-                <a href="#">Shox x entries</a>
+                <div class="select-entries">
+                    <select id="show-entries" name="show-entries">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
             </div>
             <div class="row-col row-col-xs">
                 <!-- column -->
@@ -150,6 +157,20 @@
         $("#photo_file").change(function () {
             readURL(this);
             $('#photo_preview').css("opacity", 1);
+        });
+
+        $(document).ready( function() {
+            $('#show-entries').on('change', function() {
+                $.ajax({
+                    url: '/admin/members',
+                    method: 'POST',
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    data: {'pageinateData':$('#issueinput5').val(),},
+                    success: function(d){
+                        console.log(d);
+                    }
+                });
+            });
         });
     </script>
 @endsection
