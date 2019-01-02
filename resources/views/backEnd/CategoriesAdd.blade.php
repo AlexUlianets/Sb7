@@ -67,7 +67,7 @@
                                                 <label class="col-sm-3 form-control-label">Color</label>
                                                 <div class="col-sm-9">
                                                     <div id="cp1" class="input-group colorpicker-component">
-                                                            {!! Form::text('email',$CategoryToEdit->email, array('placeholder' => '','class' => 'form-control','id'=>'style_color1')) !!}
+                                                            {{ Form::text('email',$CategoryToEdit->email, array('placeholder' => '','class' => 'form-control','id'=>'style_color1')) }}
                                                             <span class="input-group-addon" id="cpbg"><i></i></span>
                                                     </div>
                                                 </div>
@@ -98,14 +98,11 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-offset-3 col-sm-9">
                                                     @if(@Auth::user()->permissionsGroup->delete_status)
-                                                        <button class="btn warning pull-right" data-toggle="modal"
-                                                                data-target="#mc-{{ $CategoryToEdit->id }}"
-                                                                ui-toggle-class="bounce"
-                                                                ui-target="#animate">
+                                                        <a href="{{ route("categoriesDestroy", ["id" => $CategoryToEdit->id]) }}" class="btn btn-sm danger">
                                                             <small><i class="material-icons">
-                                                                    &#xe872;</i> {{ trans('backLang.deleteCategories') }}
+                                                                    &#xe872;</i> Delete
                                                             </small>
-                                                        </button>
+                                                            </a>
                                                         @endif
                                                                 <!-- .modal -->
                                                         <div id="mc-{{ $CategoryToEdit->id }}"
