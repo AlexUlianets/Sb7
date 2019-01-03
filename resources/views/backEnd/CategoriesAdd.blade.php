@@ -1,6 +1,7 @@
 @extends('backEnd.layout')
 
 @section('content')
+    <link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
     <div class="padding">
         <div class="app-body-inner">
             <div class="row-col row-col-xs">
@@ -11,7 +12,37 @@
                         <div class="p-a-sm">
                             <div>
                                 <a class="btn btn-sm white" href="{{route('categories')}}">Back</a>
+                                <div class="form-horizontal">
+                                {{ Form::open(['route' => ['categoriesUpdate'], 'method' => 'POST' ]) }}
+                                           <div class="form-group row">
+                                              <label class="col-sm-3 form-control-label">Name</label>
+                                              <div class="col-sm-9">
+                                                 {{ Form::text('name', $CategoryToEdit->name, array( 'class' => 'form-control' ) ) }}
+                                              </div>
+                                           </div>
+                                           
+                                           <div class="form-group row">
+                                              <label class="col-sm-3 form-control-label">Category meta title</label>
+                                              <div class="col-sm-9">
+                                                 {{ Form::text('category_meta', $CategoryToEdit->category_meta, array( 'class' => 'form-control' ) ) }}
+                                              </div>
+                                           </div>
 
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 form-control-label">Color</label>
+                                                <div class="col-sm-9">
+                                                    {{ Form::text('color', $CategoryToEdit->color, array( 'class' => 'form-control', 'id' => 'cp1' )) }}
+                                                </div>
+                                            </div>
+
+                                           <div class="form-group row">
+                                                <label class="col-sm-3 form-control-label">Category meta description</label>
+                                                <div class="col-sm-9">
+                                                    {{ Form::text('category_description', $CategoryToEdit->category_description, array( 'class' => 'form-control' ) ) }}
+                                                </div>
+                                           </div>
+                                {{ Form::close() }}
+                                </div>
                             </div>
                         </div>
                         <div class="row-row">
@@ -32,123 +63,7 @@
                                             </div>
                                         @endif
 
-                                        {{Form::open(['route'=>['categoriesUpdate1',$CategoryToEdit->id],'method'=>'POST', 'files' => true])}}
-                                        <div class="row-col h-auto m-b-1">
-                                            <div class="col-sm-3">
-                                                <div class="avatar w-64 inline">
-                                                    @if($CategoryToEdit->photo !="")
-                                                        <img id="photo_preview"
-                                                             src="{{ URL::to('uploads/Categories/'.$CategoryToEdit->photo) }}">
-                                                    @else
-                                                        <img id="photo_preview"
-                                                             src="{{ URL::to('uploads/contacts/profile.jpg') }}"
-                                                             style="opacity: 0.2">
-                                                    @endif
-                                                </div>
-                                                <div class="form-file">
-                                                    <input id="photo_file" type="file" name="file" accept="image/*">
-                                                    <button class="btn white btn-sm">
-                                                        <small>
-                                                            <small>{{ trans('backLang.selectFile') }} ..</small>
-                                                        </small>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- fields -->
-                                        <div class="form-horizontal">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 form-control-label">Name</label>
-                                                <div class="col-sm-9">
-                                                    {!! Form::text('first_name',$CategoryToEdit->first_name, array('placeholder' =>'','class' => 'form-control inline','id'=>'first_name','required'=>'')) !!}
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 form-control-label">Color</label>
-                                                <div class="col-sm-9">
-                                                    <div id="cp1" class="input-group colorpicker-component">
-                                                            {{ Form::text('email',$CategoryToEdit->email, array('placeholder' => '','class' => 'form-control','id'=>'style_color1')) }}
-                                                            <span class="input-group-addon" id="cpbg"><i></i></span>
-                                                    </div>
-                                                </div>
-                                                <!-- <small><a href="javascript:null"
-                                                          onclick="update_restcolor()">{!!  trans('backLang.restoreDefault') !!}</a>
-                                                </small> -->
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 form-control-label">Userame</label>
-                                                <div class="col-sm-9">
-                                                    {!! Form::text('last_name',$CategoryToEdit->last_name, array('placeholder' =>'','class' => 'form-control inline','id'=>'last_name',)) !!}
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 form-control-label">{{ trans('backLang.contactPhone') }}</label>
-                                                <div class="col-sm-6">
-                                                    {!! Form::text('phone',$CategoryToEdit->phone, array('placeholder' =>'','class' => 'form-control','id'=>'phone')) !!}
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 form-control-label">{{ trans('backLang.notes') }}</label>
-                                                <div class="col-sm-9">
-                                                    {!! Form::textarea('notes',$CategoryToEdit->notes, array('placeholder' => '','class' => 'form-control','rows'=>'2')) !!}
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group row">
-                                                <div class="col-sm-offset-3 col-sm-9">
-                                                    @if(@Auth::user()->permissionsGroup->delete_status)
-                                                        <a href="{{ route("categoriesDestroy", ["id" => $CategoryToEdit->id]) }}" class="btn btn-sm danger">
-                                                            <small><i class="material-icons">
-                                                                    &#xe872;</i> Delete
-                                                            </small>
-                                                            </a>
-                                                        @endif
-                                                                <!-- .modal -->
-                                                        <div id="mc-{{ $CategoryToEdit->id }}"
-                                                             class="modal fade"
-                                                             data-backdrop="true">
-                                                            <div class="modal-dialog" id="animate">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title">{{ trans('backLang.confirmation') }}</h5>
-                                                                    </div>
-                                                                    <div class="modal-body text-center p-lg">
-                                                                        <p>
-                                                                            {{ trans('backLang.confirmationDeleteMsg') }}
-                                                                            <br>
-                                                                            <strong>[ {{ $CategoryToEdit->first_name }}  {{ $CategoryToEdit->last_name }}
-                                                                                ]</strong>
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button"
-                                                                                class="btn dark-white p-x-md"
-                                                                                data-dismiss="modal">{{ trans('backLang.no') }}</button>
-                                                                        <a href="{{ route("categoriesDestroy",["id"=>$CategoryToEdit->id]) }}"
-                                                                           class="btn danger p-x-md">{{ trans('backLang.yes') }}</a>
-                                                                    </div>
-                                                                </div><!-- /.modal-content -->
-                                                            </div>
-                                                        </div>
-                                                        <!-- / .modal -->
-
-                                                        <button type="submit" class="btn btn-primary"><i
-                                                                    class="material-icons">
-                                                                &#xe31b;</i> {!! trans('backLang.save') !!}</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <!-- / fields -->
-                                        {{Form::close()}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /column -->
+                                        
 
                 @else
 
@@ -158,7 +73,7 @@
                         <div class="p-a-sm">
                             <div>
                                 <a class="btn btn-sm white" href="{{route('categories')}}"> <i class="material-icons">
-                                        &#xe02e; </i> Categories</a>
+                                        &#xf270; </i> Categories</a>
                             </div>
                         </div>
                         <div class="row-row">
@@ -189,26 +104,46 @@
                                            <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Name</label>
                                               <div class="col-sm-9">
-                                                 <input class="form-control inline has-value" id="first_name" required="" name="first_name" type="text" value="">
+                                                 <input class="form-control inline has-value" id="first_name" required="" name="name" type="text" value="">
                                               </div>
                                            </div>
                                            <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Category meta title</label>
                                               <div class="col-sm-9">
-                                                 <input class="form-control inline has-value" id="last_name" name="last_name" type="text" value="">
+                                                 <input class="form-control inline has-value" id="last_name" name="category_meta" type="text" value="">
                                               </div>
                                            </div>
+
+                                           <div class="form-group row">
+                                                <label class="col-sm-3 form-control-label">Color</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" id="cp1" class="form-control"/>
+                                                    <div id="cpbg"></div>
+                                                </div>
+                                           </div>
+
+                                           <div class="form-group row">
+                                                <label class="col-sm-3 form-control-label">Icon</label>
+                                                
+                                                <div class="col-sm-9">
+
+                                                    <select name="icon" class="fa-select">
+                                                        <span class="icono-piano"></span>
+                                                    </select>
+                                                </div>
+                                           </div>
+
                                            <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Category meta description</label>
                                               <div class="col-sm-9">
-                                                 <input placeholder="" class="form-control has-value" id="phone" name="phone" type="text" value="">
+                                                 <input placeholder="" class="form-control has-value" id="phone" name="category_description" type="text" value="">
                                               </div>
                                            </div>
                                            
                                            <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Category keywords</label>
                                               <div class="col-sm-9">
-                                                 <textarea placeholder="" class="form-control" rows="2" name="notes" cols="50"></textarea>
+                                                 <textarea placeholder="" class="form-control" rows="2" name="category_keywords" cols="50"></textarea>
                                               </div>
                                            </div>
                                            
@@ -302,6 +237,10 @@
         .app-footer {
             display: none;
         }
+        .fa-select {
+            font-family: 'Lato', 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
     </style>
     <script type="text/javascript">
         function readURL(input) {
@@ -320,6 +259,24 @@
         $("#photo_file").change(function () {
             readURL(this);
             $('#photo_preview').css("opacity", 1);
+        });
+
+        $("#togglePaletteOnly").spectrum({
+            showPaletteOnly: true,
+            togglePaletteOnly: true,
+            togglePaletteMoreText: 'more',
+            togglePaletteLessText: 'less',
+            color: 'blanchedalmond',
+            palette: [
+                ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
+                ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
+                ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
+                ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
+                ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"],
+                ["#c00","#e69138","#f1c232","#6aa84f","#45818e","#3d85c6","#674ea7","#a64d79"],
+                ["#900","#b45f06","#bf9000","#38761d","#134f5c","#0b5394","#351c75","#741b47"],
+                ["#600","#783f04","#7f6000","#274e13","#0c343d","#073763","#20124d","#4c1130"]
+            ]
         });
     </script>
 @endsection

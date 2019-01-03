@@ -40,6 +40,8 @@
                                 <tr>
                                     <th></th>
                                     <th>Name</th>
+                                    <th>Meta title</th>
+                                    <th>Meta description</th>
                                     <th class="text-center" style="width:100px;">Options</th>
                                 </tr>
                                 </thead>
@@ -57,10 +59,16 @@
                                                 </span>
                                             </td>
                                             <td> 
-                                                {{ $Category->first_name }}
+                                                {{ $Category->name }}
+                                            </td>
+                                            <td>
+                                                {{ $Category->category_meta }}
+                                            </td>
+                                            <td>
+                                                {{ $Category->category_description }}
                                             </td>
                                             <td class="text-center">
-                                                <a class="btn btn-sm success"  href="{{ route("categoriesUpdate",["id"=>$Category->id]) }}">
+                                                <a class="btn btn-sm success"  href="{{ route("categoryEdit",["id"=>$Category->id]) }}">
                                                     <small><i class="material-icons">
                                                             </i> Edit
                                                     </small>

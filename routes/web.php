@@ -241,6 +241,9 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     // Categories
     Route::get('/categories/', 'categoriesController@index')->name('categories');
     Route::get('/categories/update/{id?}', 'categoriesController@indexUpdate')->name('categoriesUpdate');
+
+    Route::get('/categories/edit/{id}', 'categoriesController@editCategory')->name('categoryEdit');
+
     // Route::get('/categories/add', 'categoriesController@indexAdd')->name('categoriesAdd');
     Route::post('/categories/store', 'categoriesController@store')->name('categoriesStore');
     Route::post('/categories/search', 'categoriesController@search')->name('categoriesSearch');

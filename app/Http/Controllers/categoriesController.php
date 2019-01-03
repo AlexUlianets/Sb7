@@ -50,7 +50,7 @@ class categoriesController extends Controller
             $CategoriesGroups = CategoriesGroup::orderby('id', 'asc')->get();
         }
         //List of Countries
-        $Countries = Country::orderby('title_' . trans('backLang.boxCode'), 'asc')->get();
+        $Countries = Country::orderby('title_' . trans('backLang.boxCode'), 'asc')->get(); 
 
         // if (@Auth::user()->permissionsGroup->view_status) {
         //     if ($group_id > 0) {
@@ -93,21 +93,21 @@ class categoriesController extends Controller
 
         if (@Auth::user()->permissionsGroup->view_status) {
             //Count of waiting activation Categories
-            $WaitCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                '0')->count();
+            // $WaitCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+            //    '0')->count();
 
             //Count of Blocked Categories
-            $BlockedCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                '2')->count();
+            // $BlockedCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+            //    '2')->count();
 
             //Count of All Categories
             $AllCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->count();
         } else {
             //Count of waiting activation Categories
-            $WaitCategoriesCount = Category::where('status', '=', '0')->count();
+            // $WaitCategoriesCount = Category::where('status', '=', '0')->count();
 
             //Count of Blocked Categories
-            $BlockedCategoriesCount = Category::where('status', '=', '2')->count();
+            // $BlockedCategoriesCount = Category::where('status', '=', '2')->count();
 
             //Count of All Categories
             $AllCategoriesCount = Category::count();
@@ -117,17 +117,20 @@ class categoriesController extends Controller
         $search_word = "";
 
         return view("backEnd.categories.categories",
-            compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "WaitCategoriesCount",
-                "BlockedCategoriesCount", "AllCategoriesCount", "search_word"));
+            compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "AllCategoriesCount", "search_word"));
     }
 
-    public function indexUpdate($group_id = null)
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+       public function indexUpdate($group_id = null)
     {
         //
         // General for all pages
         $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
         // General END
-
         //List of groups
         if (@Auth::user()->permissionsGroup->view_status) {
             $CategoriesGroups = CategoriesGroup::where('created_by', '=', Auth::user()->id)->orderby('id', 'asc')->get();
@@ -136,7 +139,6 @@ class categoriesController extends Controller
         }
         //List of Countries
         $Countries = Country::orderby('title_' . trans('backLang.boxCode'), 'asc')->get();
-
       
                 $Categories = Category::where('created_by', '=', Auth::user()->id)->orderby('id',
                     'desc')->paginate(env('BACKEND_PAGINATION'));
@@ -144,31 +146,23 @@ class categoriesController extends Controller
         
         if (@Auth::user()->permissionsGroup->view_status) {
             //Count of waiting activation Categories
-            $WaitCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                '0')->count();
-
+          //  $WaitCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+            //    '0')->count();
             //Count of Blocked Categories
-            $BlockedCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                '2')->count();
-
+            // $BlockedCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+            //    '2')->count();
             //Count of All Categories
             $AllCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->count();
         } else {
             //Count of waiting activation Categories
-            $WaitCategoriesCount = Category::where('status', '=', '0')->count();
-
+            // $WaitCategoriesCount = Category::where('status', '=', '0')->count();
             //Count of Blocked Categories
-            $BlockedCategoriesCount = Category::where('status', '=', '2')->count();
-
+            // $BlockedCategoriesCount = Category::where('status', '=', '2')->count();
             //Count of All Categories
             $AllCategoriesCount = Category::count();
         }
-
-
         $search_word = "";
-
         // return view("backEnd.CategoriesAdd", compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "WaitCategoriesCount", "BlockedCategoriesCount", "AllCategoriesCount", "group_id", "search_word"));
-
         $CategoryToEdit = Category::find($group_id);
         // dd($CategoryToEdit);
         if (!empty($CategoryToEdit)) {
@@ -199,19 +193,19 @@ class categoriesController extends Controller
         if (@Auth::user()->permissionsGroup->view_status) {
             if ($group_id > 0) {
                 //List of group Categories
-                $Categories = Category::where('created_by', '=', Auth::user()->id)->where('group_id', '=',
-                    $group_id)->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
-            } elseif ($group_id == "wait") {
+                // $Categories = Category::where('created_by', '=', Auth::user()->id)->where('group_id', '=',
+                    // $group_id)->orderby('id',
+                    //'desc')->paginate(env('BACKEND_PAGINATION'));
+            /*} elseif ($group_id == "wait") {
                 //List waiting activation Categories
                 $Categories = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
                     '0')->orderby('id',
                     'desc')->paginate(env('BACKEND_PAGINATION'));
             } elseif ($group_id == "blocked") {
                 //List waiting activation Categories
-                $Categories = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                    '2')->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
+                // $Categories = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+                    // '2')->orderby('id',
+                    // 'desc')->paginate(env('BACKEND_PAGINATION')); */
             } else {
                 //List of all Categories
                 $Categories = Category::where('created_by', '=', Auth::user()->id)->orderby('id',
@@ -220,16 +214,16 @@ class categoriesController extends Controller
         } else {
             if ($group_id > 0) {
                 //List of group Categories
-                $Categories = Category::where('group_id', '=', $group_id)->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
+                //$Categories = Category::where('group_id', '=', $group_id)->orderby('id',
+                //    'desc')->paginate(env('BACKEND_PAGINATION'));
             } elseif ($group_id == "wait") {
                 //List waiting activation Categories
-                $Categories = Category::where('status', '=', '0')->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
+                // $Categories = Category::where('status', '=', '0')->orderby('id',
+                //    'desc')->paginate(env('BACKEND_PAGINATION'));
             } elseif ($group_id == "blocked") {
                 //List waiting activation Categories
-                $Categories = Category::where('status', '=', '2')->orderby('id',
-                    'desc')->paginate(env('BACKEND_PAGINATION'));
+                // $Categories = Category::where('status', '=', '2')->orderby('id',
+                 //   'desc')->paginate(env('BACKEND_PAGINATION'));
             } else {
                 //List of all Categories
                 $Categories = Category::orderby('id', 'desc')->paginate(env('BACKEND_PAGINATION'));
@@ -238,21 +232,21 @@ class categoriesController extends Controller
 
         if (@Auth::user()->permissionsGroup->view_status) {
             //Count of waiting activation Categories
-            $WaitCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                '0')->count();
+            //$WaitCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+            //    '0')->count();
 
             //Count of Blocked Categories
-            $BlockedCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                '2')->count();
+            // $BlockedCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+            //    '2')->count();
 
             //Count of All Categories
             $AllCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->count();
         } else {
             //Count of waiting activation Categories
-            $WaitCategoriesCount = Category::where('status', '=', '0')->count();
+            // $WaitCategoriesCount = Category::where('status', '=', '0')->count();
 
-            //Count of Blocked Categories
-            $BlockedCategoriesCount = Category::where('status', '=', '2')->count();
+            // Count of Blocked Categories
+            // $BlockedCategoriesCount = Category::where('status', '=', '2')->count();
 
             //Count of All Categories
             $AllCategoriesCount = Category::count();
@@ -262,8 +256,7 @@ class categoriesController extends Controller
         $search_word = "";
 
         return view("backEnd.CategoriesAdd",
-            compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "WaitCategoriesCount",
-                "BlockedCategoriesCount", "AllCategoriesCount", "group_id", "search_word"));
+            compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "AllCategoriesCount", "group_id", "search_word"));
     }
 
 
@@ -389,7 +382,6 @@ class categoriesController extends Controller
 
         //
         $this->validate($request, [
-            'email' => 'email|required',
             'file' => 'mimes:png,jpeg,jpg,gif|max:3000'
         ]);
 
@@ -406,22 +398,11 @@ class categoriesController extends Controller
         // End of Upload Files
 
         $Category = new Category;
-        $Category->group_id = $request->group_id;
-        $Category->first_name = $request->first_name;
-        $Category->last_name = $request->last_name;
-        $Category->company = $request->company;
-        $Category->email = $request->email;
-        $Category->password = $request->password;
-        $Category->phone = $request->phone;
-        $Category->country_id = $request->country_id;
-        $Category->city = $request->city;
-        $Category->address = $request->address;
-        $Category->address = $request->address;
-        $Category->type = $request->type;
-        $Category->gender = $request->gender;
         $Category->photo = $fileFinalName_ar;
-        $Category->notes = $request->notes;
-        $Category->status = 1;
+        $Category->name = $request->name;
+        $Category->category_meta = $request->category_meta;
+        $Category->category_description = $request->category_description;
+        $Category->category_keywords = $request->category_keywords;
         $Category->created_by = Auth::user()->id;
         $Category->save();
 
@@ -552,7 +533,7 @@ class categoriesController extends Controller
 
             $Category->status = $request->status;
             $Category->updated_by = Auth::user()->id;
-            $Category->save();
+            $Category->save();  
             return redirect()->action('categoriesController@index')->with('CategoryToEdit', $Category)->with('doneMessage2',
                 trans('backLang.saveDone'));
         } else {
@@ -723,6 +704,21 @@ class categoriesController extends Controller
         return view("backEnd.categories.categories",
             compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "WaitCategoriesCount",
                 "BlockedCategoriesCount", "AllCategoriesCount", "search_word"));
+    }
+
+    /**
+     * Edit the category
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editCategory($id)
+    {
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+
+        $CategoryToEdit = Category::find($id);
+
+        return view("backEnd.CategoriesAdd", compact("CategoryToEdit", "GeneralWebmasterSections"));
     }
 
 }
