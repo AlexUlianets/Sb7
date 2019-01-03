@@ -6,6 +6,12 @@
             <button class="btn btn-info m-a pull-right" onclick="window.location.href='{{ route("categoriesUpdate") }}'">ADD NEW</button>
             <div class="p-a-md dker">
                 <h5>Categories</h5>
+                {{ Form::open(['route' => ['categoriesEntries'], 'method' => 'POST']) }}
+                    <p>Show
+                    {{ Form::select('show-entries', array( '10' => '10', '25' => '25', '50' => '50', '100' => '100', '150' => '150', '200' => '200', '250' => '250')) }}
+                    entries</p>
+                    <input type="submit" class="btn btn-sm success" value="Show" />
+                {{ Form::close() }}
             </div>
             <div class="row-col row-col-xs">
                 <!-- column -->

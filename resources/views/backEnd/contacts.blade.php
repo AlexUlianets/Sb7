@@ -6,14 +6,12 @@
             <button class="btn btn-info m-a pull-right" onclick="window.location.href='{{ route("membersUpdate") }}'">ADD NEW</button>
             <div class="p-a-md dker">
                 <h5>Members</h5>
-                <div class="select-entries">
-                    <select id="show-entries" name="show-entries">
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-                </div>
+                {{ Form::open(['route' => ['contactsShowEntries'], 'method' => 'POST' ]) }}
+                    <p>Show
+                    {{ Form::select('show-entries', array( '10' => '10', '25' => '25', '50' => '50', '100' => '100', '150' => '150', '200' => '200', '250' => '250')) }}
+                    entries</p>
+                    <input type="submit" class="btn btn-sm success" value="Show" />
+                {{ Form::close() }}
             </div>
             <div class="row-col row-col-xs">
                 <!-- column -->
@@ -159,19 +157,6 @@
             $('#photo_preview').css("opacity", 1);
         });
 
-        $(document).ready( function() {
-            $('#show-entries').on('change', function() {
-                $.ajax({
-                    url: '/admin/members',
-                    method: 'POST',
-                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                    data: {'pageinateData':$('#issueinput5').val(),},
-                    success: function(d){
-                        console.log(d);
-                    }
-                });
-            });
-        });
     </script>
 @endsection
 @section('footerInclude')

@@ -231,6 +231,8 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/members/ban/{id}', 'ContactsController@banUser')->name('contactsBan');
     Route::get('/members/unban/{id}', 'ContactsController@unbanUser')->name('contactsUnban');
 
+    Route::post('/members/show-entries', 'ContactsController@contactsShowEntries')->name('contactsShowEntries');
+
     // Categories Groups
     Route::post('/categories/storeGroup', 'categoriesController@storeGroup')->name('categoriesStoreGroup');
     Route::get('/categories/{id}/editGroup', 'categoriesController@editGroup')->name('categoriesEditGroup');
@@ -246,6 +248,8 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::post('/categories/{id}/update', 'categoriesController@update')->name('categoriesUpdate1');
     Route::get('/categories/destroy/{id}', 'categoriesController@destroy')->name('categoriesDestroy');
     Route::post('/categories/updateAll', 'categoriesController@updateAll')->name('categoriesUpdateAll');
+
+    Route::post('/categories/show-entries', 'categoriesController@showEntries')->name('categoriesEntries');
 
     // WebMails Groups
     Route::post('/webmails/storeGroup', 'WebmailsController@storeGroup')->name('webmailsStoreGroup');

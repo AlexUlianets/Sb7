@@ -670,5 +670,59 @@ class categoriesController extends Controller
         return redirect()->action('categoriesController@index')->with('doneMessage', trans('backLang.saveDone'));
     }
 
+    /**
+     * This function show x entries of categories
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  buttonNames , array $ids[]
+     * @return \Illuminate\Http\Response
+     */
+    public function showEntries(Request $request)
+    {
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+        // General END
+
+        //List of groups
+        if (@Auth::user()->permissionsGroup->view_status) {
+            $CategoriesGroups = CategoriesGroup::where('created_by', '=', Auth::user()->id)->orderby('id', 'asc')->get();
+        } else {
+            $CategoriesGroups = CategoriesGroup::orderby('id', 'asc')->get();
+        }
+        //List of Countries
+        $Countries = Country::orderby('title_' . trans('backLang.boxCode'), 'asc')->get();
+
+        $show_entries = $request->input('show-entries');
+
+        $Categories = Category::where('created_by', '=', Auth::user()->id)->orderby('id', 'desc')->paginate( $show_entries );
+
+        if (@Auth::user()->permissionsGroup->view_status) {
+            //Count of waiting activation Categories
+            $WaitCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+                '0')->count();
+
+            //Count of Blocked Categories
+            $BlockedCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
+                '2')->count();
+
+            //Count of All Categories
+            $AllCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->count();
+        } else {
+            //Count of waiting activation Categories
+            $WaitCategoriesCount = Category::where('status', '=', '0')->count();
+
+            //Count of Blocked Categories
+            $BlockedCategoriesCount = Category::where('status', '=', '2')->count();
+
+            //Count of All Categories
+            $AllCategoriesCount = Category::count();
+        }
+
+
+        $search_word = "";
+
+        return view("backEnd.categories.categories",
+            compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "WaitCategoriesCount",
+                "BlockedCategoriesCount", "AllCategoriesCount", "search_word"));
+    }
 
 }

@@ -722,4 +722,61 @@ class ContactsController extends Controller
         return redirect()->action('ContactsController@index');
     }
 
+    /**
+     * This show entries of contacts
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  buttonNames , array $ids[]
+     * @return \Illuminate\Http\Response
+     */
+    public function contactsShowEntries(Request $request)
+    {
+        //
+        // General for all pages
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+        // General END
+
+        //List of groups
+        if (@Auth::user()->permissionsGroup->view_status) {
+            $ContactsGroups = ContactsGroup::where('created_by', '=', Auth::user()->id)->orderby('id', 'asc')->get();
+        } else {
+            $ContactsGroups = ContactsGroup::orderby('id', 'asc')->get();
+        }
+        //List of Countries
+        $Countries = Country::orderby('title_' . trans('backLang.boxCode'), 'asc')->get();
+
+        $show_entries = $request->input('show-entries');
+
+        $Contacts = Contact::where('created_by', '=', Auth::user()->id)->orderby('id', 'desc')->paginate( $show_entries );
+
+        if (@Auth::user()->permissionsGroup->view_status) {
+            //Count of waiting activation Contacts
+            $WaitContactsCount = Contact::where('created_by', '=', Auth::user()->id)->where('status', '=',
+                '0')->count();
+
+            //Count of Blocked Contacts
+            $BlockedContactsCount = Contact::where('created_by', '=', Auth::user()->id)->where('status', '=',
+                '2')->count();
+
+            //Count of All Contacts
+            $AllContactsCount = Contact::where('created_by', '=', Auth::user()->id)->count();
+        } else {
+            //Count of waiting activation Contacts
+            $WaitContactsCount = Contact::where('status', '=', '0')->count();
+
+            //Count of Blocked Contacts
+            $BlockedContactsCount = Contact::where('status', '=', '2')->count();
+
+            //Count of All Contacts
+            $AllContactsCount = Contact::count();
+        }
+
+
+        $search_word = "";
+
+        return view("backEnd.contacts",
+            compact("Contacts", "GeneralWebmasterSections", "ContactsGroups", "Countries", "WaitContactsCount",
+                "BlockedContactsCount", "AllContactsCount", "search_word"));  
+    }
+
 }
