@@ -75,6 +75,7 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-9">
                                                     {{ Form::submit('Save', [ 'class' => 'btn btn-sm primary' ]) }}
+                                                    <a href="{{ route( 'categoriesDestroy', ['id' => $CategoryToEdit->id ] ) }}" class="btn btn-sm danger">Delete</a>
                                                 </div>
                                             </div>
                                 {{ Form::close() }}
