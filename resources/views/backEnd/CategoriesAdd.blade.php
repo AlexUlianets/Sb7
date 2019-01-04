@@ -13,7 +13,30 @@
                             <div>
                                 <a class="btn btn-sm white" href="{{route('categories')}}">Back</a>
                                 <div class="form-horizontal">
-                                {{ Form::open(['route' => ['categoriesUpdate'], 'method' => 'POST' ]) }}
+                                {{ Form::open(['route' => ['categoriesUpdate1', $CategoryToEdit->id ], 'method' => 'POST' ]) }}
+                                            <div class="row-col h-auto m-b-1">
+                                            <div class="col-sm-3">
+                                                <div class="avatar w-64 inline">
+                                                    @if($CategoryToEdit->photo !="")
+                                                        <img id="photo_preview"
+                                                             src="{{ URL::to('uploads/Categories/'.$CategoryToEdit->photo) }}">
+                                                    @else
+                                                        <img id="photo_preview"
+                                                             src="{{ URL::to('uploads/contacts/profile.jpg') }}"
+                                                             style="opacity: 0.2">
+                                                    @endif
+                                                </div>
+                                                <div class="form-file">
+                                                    <input id="photo_file" type="file" name="file" accept="image/*">
+                                                    <button class="btn white btn-sm">
+                                                        <small>
+                                                            <small>{{ trans('backLang.selectFile') }} ..</small>
+                                                        </small>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                            <div class="form-group row">
                                               <label class="col-sm-3 form-control-label">Name</label>
                                               <div class="col-sm-9">
@@ -41,6 +64,19 @@
                                                     {{ Form::text('category_description', $CategoryToEdit->category_description, array( 'class' => 'form-control' ) ) }}
                                                 </div>
                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 form-control-label">Category keywords</label>
+                                                <div class="col-sm-9">
+                                                    {{ Form::textarea('category_keywords', $CategoryToEdit->category_keywords, array( 'class' => 'form-control' ) ) }}
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="col-sm-9">
+                                                    {{ Form::submit('Save', [ 'class' => 'btn btn-sm primary' ]) }}
+                                                </div>
+                                            </div>
                                 {{ Form::close() }}
                                 </div>
                             </div>
@@ -117,7 +153,7 @@
                                            <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Color</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" id="cp1" class="form-control"/>
+                                                    <input type="text" id="cp1" class="form-control"  name="color" />
                                                     <div id="cpbg"></div>
                                                 </div>
                                            </div>

@@ -399,6 +399,7 @@ class categoriesController extends Controller
 
         $Category = new Category;
         $Category->photo = $fileFinalName_ar;
+        $Category->color = $request->color;
         $Category->name = $request->name;
         $Category->category_meta = $request->category_meta;
         $Category->category_description = $request->category_description;
@@ -507,20 +508,12 @@ class categoriesController extends Controller
             }
             // End of Upload Files
 
-            $Category->group_id = $request->group_id;
-            $Category->first_name = $request->first_name;
-            $Category->last_name = $request->last_name;
-            $Category->company = $request->company;
-            $Category->email = $request->email;
-            $Category->password = $request->password;
-            $Category->phone = $request->phone;
-            $Category->type = $request->type;
-            $Category->gender = $request->gender;
-            $Category->country_id = $request->country_id;
-            $Category->city = $request->city;
-            $Category->address = $request->address;
-            $Category->address = $request->address;
-            $Category->notes = $request->notes;
+            $Category->photo = $fileFinalName_ar;
+            $Category->color = $request->color;
+            $Category->name = $request->name;
+            $Category->category_meta = $request->category_meta;
+            $Category->category_description = $request->category_description;
+            $Category->category_keywords = $request->category_keywords;
 
             if ($fileFinalName_ar != "") {
                 // Delete a Category file
@@ -531,8 +524,6 @@ class categoriesController extends Controller
                 $Category->photo = $fileFinalName_ar;
             }
 
-            $Category->status = $request->status;
-            $Category->updated_by = Auth::user()->id;
             $Category->save();  
             return redirect()->action('categoriesController@index')->with('CategoryToEdit', $Category)->with('doneMessage2',
                 trans('backLang.saveDone'));

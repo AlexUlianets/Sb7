@@ -82,22 +82,21 @@
                                             <td class="text-center">
 
                                                 <a class="btn btn-sm success"  href="{{ route("membersUpdate",["id"=>$Contact->id]) }}">
-                                                    <small><i class="material-icons">
-                                                            </i> Edit
+                                                    <small>
+                                                    Edit
                                                     </small>
                                                 </a>
 
                                                 <a class="btn btn-sm danger" href="{{ route("contactsDestroy", ["id" => $Contact->id]) }}">
                                                     <small>
-                                                        <i class="material-icons">
-                                                            </i> Delete
+                                                        Delete
                                                     </small>
                                                 </a>
 
                                                 @if ( $Contact->ban != 1 )
                                                     <a class="btn btn-sm warning" href="{{ route("contactsBan", ["id" => $Contact->id ]) }}">
                                                         <small>
-                                                            <i class="material-icons"></i> Ban
+                                                        Ban
                                                         </small>
                                                     </a>
                                                 @elseif ( $Contact->ban == 1 )
