@@ -59,6 +59,33 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row">
+                                              <label class="form-control-label">Icon</label>
+                                              <div class="col-sm-9">
+                                                <select name="icon" class="form-control">
+                                                        <option value="{{ $CategoryToEdit->icon }}">{{ $CategoryToEdit->icon }}</option>
+                                                        <option value="✏">✏ Pencil</option>
+                                                        <option value="♥">♥ Heart</option>
+                                                        <option value="★">★ Star</option>
+                                                        <option value="☻">☻ Smile</option>
+                                                        <option value="✂">✂ Scissors</option>
+                                                        <option value="⚑">⚑ Flag</option>
+                                                        <option value="©">© Copyright</option>
+                                                        <option value="☁">☁ Cloud</option>
+                                                        <option value="✈">✈ Airplane</option>
+                                                        <option value="⚙">⚙ Gear</option>
+                                                        <option value="♨">♨ Hot springs</option>
+                                                        <option value="☂">☂ Umbrella</option>
+                                                        <option value="✌">✌ Victory Hand</option>
+                                                        <option value="☃">☃ Snowman</option>
+                                                        <option value="☘">☘ Shamrock</option>
+                                                        <option value="❄">❄ Snowflake</option>
+                                                        <option value="✉">✉ Envelope</option>
+                                                        <option value="☎">☎ Telephone</option>
+                                                    </select>
+                                                    </div>
+                                            </div>
+
                                            <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Category meta description</label>
                                                 <div class="col-sm-9">
@@ -165,8 +192,25 @@
                                                 
                                                 <div class="col-sm-9">
 
-                                                    <select name="icon" class="fa-select">
-                                                        <span class="icono-piano"></span>
+                                                    <select name="icon" class="form-control">
+                                                        <option value="✏">✏ Pencil</option>
+                                                        <option value="♥">♥ Heart</option>
+                                                        <option value="★">★ Star</option>
+                                                        <option value="☻">☻ Smile</option>
+                                                        <option value="✂">✂ Scissors</option>
+                                                        <option value="⚑">⚑ Flag</option>
+                                                        <option value="©">© Copyright</option>
+                                                        <option value="☁">☁ Cloud</option>
+                                                        <option value="✈">✈ Airplane</option>
+                                                        <option value="⚙">⚙ Gear</option>
+                                                        <option value="♨">♨ Hot springs</option>
+                                                        <option value="☂">☂ Umbrella</option>
+                                                        <option value="✌">✌ Victory Hand</option>
+                                                        <option value="☃">☃ Snowman</option>
+                                                        <option value="☘">☘ Shamrock</option>
+                                                        <option value="❄">❄ Snowflake</option>
+                                                        <option value="✉">✉ Envelope</option>
+                                                        <option value="☎">☎ Telephone</option>
                                                     </select>
                                                 </div>
                                            </div>

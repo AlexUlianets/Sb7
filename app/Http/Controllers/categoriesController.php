@@ -400,6 +400,7 @@ class categoriesController extends Controller
         $Category = new Category;
         $Category->photo = $fileFinalName_ar;
         $Category->color = $request->color;
+        $Category->icon = $request->icon;
         $Category->name = $request->name;
         $Category->category_meta = $request->category_meta;
         $Category->category_description = $request->category_description;
@@ -510,6 +511,7 @@ class categoriesController extends Controller
 
             $Category->photo = $fileFinalName_ar;
             $Category->color = $request->color;
+            $Category->icon = $request->icon;
             $Category->name = $request->name;
             $Category->category_meta = $request->category_meta;
             $Category->category_description = $request->category_description;

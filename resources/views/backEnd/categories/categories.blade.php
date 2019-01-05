@@ -40,6 +40,7 @@
                                 <tr>
                                     <th></th>
                                     <th>Name</th>
+                                    <th>Icon</th>
                                     <th>Meta title</th>
                                     <th>Meta description</th>
                                     <th class="text-center" style="width:100px;">Options</th>
@@ -60,6 +61,9 @@
                                             </td>
                                             <td> 
                                                 {{ $Category->name }}
+                                            </td>
+                                            <td>
+                                                {{ $Category->icon }}
                                             </td>
                                             <td>
                                                 {{ $Category->category_meta }}
