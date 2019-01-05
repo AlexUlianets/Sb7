@@ -3,6 +3,7 @@
 @section('content')
     <link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
     <div class="padding">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="app-body-inner">
             <div class="row-col row-col-xs">
                 @if($CategoryToEdit)
@@ -38,7 +39,7 @@
                                         </div>
 
                                            <div class="form-group row">
-                                              <label class="col-sm-3 form-control-label">Name</label>
+                                              <label class="col-sm-3 form-control-label">Name</label> 
                                               <div class="col-sm-9">
                                                  {{ Form::text('name', $CategoryToEdit->name, array( 'class' => 'form-control' ) ) }}
                                               </div>

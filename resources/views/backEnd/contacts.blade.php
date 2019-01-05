@@ -1,6 +1,7 @@
 @extends('backEnd.layout')
 
 @section('content')
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <div class="padding">
         <div class="box">
             <button class="btn btn-info m-a pull-right" onclick="window.location.href='{{ route("membersUpdate") }}'">ADD NEW</button>
@@ -81,31 +82,33 @@
 
                                             <td class="text-center">
 
+                                            	<div class="row">
                                                 <a class="btn btn-sm success"  href="{{ route("membersUpdate",["id"=>$Contact->id]) }}">
                                                     <small>
-                                                    Edit
+                                                    <i class="material-icons">edit</i>
                                                     </small>
                                                 </a>
 
                                                 <a class="btn btn-sm danger" href="{{ route("contactsDestroy", ["id" => $Contact->id]) }}">
                                                     <small>
-                                                        Delete
+                                                    <i class="material-icons">clear</i>
                                                     </small>
                                                 </a>
 
                                                 @if ( $Contact->ban != 1 )
                                                     <a class="btn btn-sm warning" href="{{ route("contactsBan", ["id" => $Contact->id ]) }}">
                                                         <small>
-                                                        Ban
+                                                        <i class="material-icons">not_interested</i>
                                                         </small>
                                                     </a>
                                                 @elseif ( $Contact->ban == 1 )
                                                     <a class="btn btn btn-sm primary" href="{{ route("contactsUnban", ["id" => $Contact->id ]) }}">
                                                         <small>
-                                                            Unban
+                                                        <i class="material-icons">remove_circle_outline</i>
                                                         </small>
                                                     </a>
                                                 @endif
+                                                </div>
 
 
                                             </td>
