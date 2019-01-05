@@ -1,6 +1,7 @@
 @extends('backEnd.layout')
 
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <div class="padding">
         <div class="box">
             <button class="btn btn-info m-a pull-right" onclick="window.location.href='{{ route("categoriesUpdate") }}'">ADD NEW</button>
@@ -27,11 +28,13 @@
                                 <button type="submit" style="padding-top: 10px;"
                                         class="input-group-addon no-border no-bg pull-left"><i class="fa fa-search"></i>
                                 </button>
-                                <input type="text" style="width: 85%" name="q" required value="{{ $search_word }}"
+                                <!-- <input type="text" style="width: 85%" name="q" required value="{{ $search_word }}"
                                        class="form-control no-border no-bg"
-                                       placeholder="Search here">
+                                       placeholder="Search here"> -->
+                                       
                             </div>
                             {{Form::close()}}
+                            <input type="text" style="width: 85%" name="q" value="{{ $search_word }}" id="txSearch" class="form-control no-border no-bg" />
                         </div>
                         <div class="row-row">
 
@@ -104,6 +107,22 @@
         }
     </style>
     <script type="text/javascript">
+        
+        $(document).ready( function() {
+            $('#txSearch').on('keyup', function() {
+                var text = $('#txSearch').val();
+
+                $.ajax({
+                    type: "GET",
+                    url: '{{ route("searchCategory") }}',
+                    data: { text: $('#txSearch').val() },
+                    success: function( data ) {
+                        console.log(data);
+                    }
+                });
+            });
+        });
+
         function readURL(input) {
 
             if (input.files && input.files[0]) {

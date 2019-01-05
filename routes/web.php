@@ -278,6 +278,8 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/calendar/updateAll', 'EventsController@updateAll')->name('calendarUpdateAll');
     Route::post('/calendar/{id}/extend', 'EventsController@extend')->name('calendarExtend');
 
+    Route::get('/search/category', 'SearchController@search')->name('searchCategory');
+
     // Analytics
     Route::get('/ip/{ip_code?}', 'AnalyticsController@ip')->name('visitorsIP');
     Route::post('/ip/search', 'AnalyticsController@search')->name('visitorsSearch');
