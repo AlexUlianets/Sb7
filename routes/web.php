@@ -24,7 +24,9 @@ Route::get('/lang/{lang}', array(
 ))->name('langChange');
 // .. End of Language Route
 
+    Route::get('/live_search', 'SearchController@action')->name('live_search');
 
+    
 // Backend Routes
 Auth::routes();
 Route::get('/logout', function () {
@@ -254,6 +256,7 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
 
     Route::post('/categories/show-entries', 'categoriesController@showEntries')->name('categoriesEntries');
 
+
     // WebMails Groups
     Route::post('/webmails/storeGroup', 'WebmailsController@storeGroup')->name('webmailsStoreGroup');
     Route::get('/webmails/{id}/editGroup', 'WebmailsController@editGroup')->name('webmailsEditGroup');
@@ -277,8 +280,6 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/calendar/destroy/{id}', 'EventsController@destroy')->name('calendarDestroy');
     Route::get('/calendar/updateAll', 'EventsController@updateAll')->name('calendarUpdateAll');
     Route::post('/calendar/{id}/extend', 'EventsController@extend')->name('calendarExtend');
-
-    Route::get('/search/category', 'SearchController@search')->name('searchCategory');
 
     // Analytics
     Route::get('/ip/{ip_code?}', 'AnalyticsController@ip')->name('visitorsIP');

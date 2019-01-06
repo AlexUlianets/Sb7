@@ -1,7 +1,10 @@
 @extends('backEnd.layout')
 
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+              src="https://code.jquery.com/jquery-3.3.1.js"
+              integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+              crossorigin="anonymous"></script>
     <div class="padding">
         <div class="box">
             <button class="btn btn-info m-a pull-right" onclick="window.location.href='{{ route("categoriesUpdate") }}'">ADD NEW</button>
@@ -31,10 +34,10 @@
                                 <!-- <input type="text" style="width: 85%" name="q" required value="{{ $search_word }}"
                                        class="form-control no-border no-bg"
                                        placeholder="Search here"> -->
+                                <input type="text" class="form-control no-border no-bg" id="search" name="search" />
                                        
                             </div>
                             {{Form::close()}}
-                            <input type="text" style="width: 85%" name="q" value="{{ $search_word }}" id="txSearch" class="form-control no-border no-bg" />
                         </div>
                         <div class="row-row">
 
@@ -97,29 +100,31 @@
                 <!-- /column -->
                 @endif
 
+                
 
             </div>
         </div>
     </div>
+    <div class="test">
+
+                </div>
     <style>
         .app-footer {
             display: none;
         }
     </style>
     <script type="text/javascript">
-        
-        $(document).ready( function() {
-            $('#txSearch').on('keyup', function() {
-                var text = $('#txSearch').val();
 
-                $.ajax({
-                    type: "GET",
-                    url: '{{ route("searchCategory") }}',
-                    data: { text: $('#txSearch').val() },
-                    success: function( data ) {
-                        console.log(data);
-                    }
-                });
+        $('#search').on('keyup', function() {
+            var value = $(this).val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/live_search',
+                data: { 'search': value },
+                success: function( data ) {
+                    $('.test').html(data);
+                }
             });
         });
 
