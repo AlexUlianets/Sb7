@@ -78,6 +78,7 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
 
     Route::get('/messages', 'messagesController@index')->name('messages');
     Route::get('/messages/destroy/{id}', 'messagesController@destroy')->name('messagesDestroy');
+    Route::post('/messages/show_entries', 'messagesController@showEntries')->name('messagesShowEntries');
 
 
     // Admin Home

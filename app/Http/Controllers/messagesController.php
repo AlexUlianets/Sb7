@@ -11,6 +11,7 @@ use App\ContactMessages;
 use Illuminate\Http\Request;
 use Redirect;
 use File;
+use Illuminate\Config;
 
 class messagesController extends Controller
 {
@@ -64,5 +65,26 @@ class messagesController extends Controller
             $ContactMessage->delete();
         }
         return redirect()->action('messagesController@index');
+    }
+
+    /**
+     * Show X entries of contact messages
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  buttonNames , array $ids[]
+     * @return \Illuminate\Http\Response
+     */
+    public function showEntries(Request $request)
+    {
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+        $Permissions = Permissions::orderby('id', 'asc')->get();
+        
+        $show_entries = $request->input('show_entries');
+
+        $ContactMessages = ContactMessages::latest('id')->paginate( $show_entries );
+
+        if ( $ContactMessages ) {
+            return view("backEnd.messages.messages", compact( "ContactMessages", "Permissions", "GeneralWebmasterSections"));
+        }
     }
 }
