@@ -74,7 +74,10 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
 
     Route::get('/categories', 'categoriesController@index')->name('categories');
     Route::get('/reports', 'reportsController@index')->name('reports');
+
+
     Route::get('/messages', 'messagesController@index')->name('messages');
+    Route::get('/messages/destroy/{id}', 'messagesController@destroy')->name('messagesDestroy');
 
 
     // Admin Home

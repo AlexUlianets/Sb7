@@ -1,7 +1,11 @@
 <div class="padding">
-        <div class="box">
-        	<div class="box-header dker">
-                <h3>developing123213...</h3>
-            </div>
-        </div>
-    </div>
+        	<div class="box">
+        		<div class="p-a-m dker">
+        			<h5>Contact Messages</h5>
+        		</div>
+        	</div>
+        	@if ( !empty( $ContactMessages ) )
+
+        	@endif
+        	</div>
+</div>

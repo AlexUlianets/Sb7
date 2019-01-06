@@ -30,7 +30,7 @@ class SearchController extends Controller
     	{
 			$output = "";
 
-			return Response( DB::select('SELECT * FROM smartend_categories') );
+			return Response( var_dump( "Hello world" ) );
 
 		}
     }
