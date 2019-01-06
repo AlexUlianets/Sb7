@@ -11,6 +11,18 @@
                                 {{ Form::close() }}                                
         		</div>
         		<div class="row-col row-col-xs">
+                                <div class="p-a-xs b-b">
+                                        {{Form::open(['route'=>['messagesSearch'],'method'=>'POST'])}}
+                                                <div class="input-group">
+                                                        <button type="submit" style="padding-top: 10px;"
+                                        class="input-group-addon no-border no-bg pull-left"><i class="fa fa-search"></i>
+                                                        </button>
+                                                        <input type="text" style="width: 88%" name="q" required
+                                       class="form-control no-border no-bg"
+                                       placeholder="Search all contact messages">
+                                                </div>
+                                        {{Form::close()}}
+                                </div>
         			@if ( !empty( $ContactMessages ) )
         				<div class="row-row">
         					<table class="table table-striped b-t">
