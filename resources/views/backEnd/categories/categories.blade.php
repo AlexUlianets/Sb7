@@ -31,11 +31,11 @@
                                 <button type="submit" style="padding-top: 10px;"
                                         class="input-group-addon no-border no-bg pull-left"><i class="fa fa-search"></i>
                                 </button>
-                                <!-- <input type="text" style="width: 85%" name="q" required value="{{ $search_word }}"
+                                <input type="text" style="width: 60%" name="q" required value="{{ $search_word }}"
                                        class="form-control no-border no-bg"
-                                       placeholder="Search here"> -->
-                                <input type="text" class="form-control no-border no-bg" id="search" name="search" />
-                                       
+                                       placeholder="Search here">
+                                <input type="submit"
+                                        class="btn btn-sm success pull-right" style="float: right;margin-top: 5px;" value="Search" />
                             </div>
                             {{Form::close()}}
                         </div>
@@ -115,7 +115,7 @@
     </style>
     <script type="text/javascript">
 
-        $('#search').on('keyup', function() {
+        /* $('#search').on('keyup', function() {
             var value = $(this).val();
 
             $.ajax({
@@ -126,7 +126,7 @@
                     $('.test').html(data);
                 }
             });
-        });
+        }); */
 
         function readURL(input) {
 

@@ -54,8 +54,6 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
         return view('errors.404');
     })->name('NotFound');
 
-
-
     Route::post('/updateCustomSettings', 'updateCustomSettingsController@store')->name('updateCustomSettings');
     // New routes
     Route::get('/lists', 'listsController@index')->name('lists');

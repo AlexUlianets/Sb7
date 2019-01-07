@@ -287,14 +287,10 @@ class categoriesController extends Controller
         if (@Auth::user()->permissionsGroup->view_status) {
             if ($request->q != "") {
                 //find Categories
-                $Categories = Category::where('created_by', '=', Auth::user()->id)->where('first_name', 'like',
+                $Categories = Category::where('created_by', '=', Auth::user()->id)->where('name', 'like',
                     '%' . $request->q . '%')
-                    ->orwhere('last_name', 'like', '%' . $request->q . '%')
-                    ->orwhere('company', 'like', '%' . $request->q . '%')
-                    ->orwhere('city', 'like', '%' . $request->q . '%')
-                    ->orwhere('notes', 'like', '%' . $request->q . '%')
-                    ->orwhere('phone', '=', $request->q)
-                    ->orwhere('email', '=', $request->q)
+                    ->orWhere('category_meta', 'like', '%' . $request->q . '%' )
+                    ->orWhere('category_keywords', 'like', '%' . $request->q . '%')
                     ->orderby('id', 'desc')->paginate(env('BACKEND_PAGINATION'));
             } else {
                 //List of all Categories
@@ -304,13 +300,10 @@ class categoriesController extends Controller
         } else {
             if ($request->q != "") {
                 //find Categories
-                $Categories = Category::where('first_name', 'like', '%' . $request->q . '%')
-                    ->orwhere('last_name', 'like', '%' . $request->q . '%')
-                    ->orwhere('company', 'like', '%' . $request->q . '%')
-                    ->orwhere('city', 'like', '%' . $request->q . '%')
-                    ->orwhere('notes', 'like', '%' . $request->q . '%')
-                    ->orwhere('phone', '=', $request->q)
-                    ->orwhere('email', '=', $request->q)
+                $Categories = Category::where('created_by', '=', Auth::user()->id)->where('name', 'like',
+                    '%' . $request->q . '%')
+                    ->orWhere('category_meta', 'like', '%' . $request->q . '%' )
+                    ->orWhere('category_keywords', 'like', '%' . $request->q . '%')
                     ->orderby('id', 'desc')->paginate(env('BACKEND_PAGINATION'));
             } else {
                 //List of all Categories
@@ -318,22 +311,12 @@ class categoriesController extends Controller
             }
         }
         if (@Auth::user()->permissionsGroup->view_status) {
-            //Count of waiting activation Categories
-            $WaitCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                '0')->count();
 
-            //Count of Blocked Categories
-            $BlockedCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->where('status', '=',
-                '2')->count();
 
             //Count of All Categories
             $AllCategoriesCount = Category::where('created_by', '=', Auth::user()->id)->count();
         } else {
-            //Count of waiting activation Categories
-            $WaitCategoriesCount = Category::where('status', '=', '0')->count();
 
-            //Count of Blocked Categories
-            $BlockedCategoriesCount = Category::where('status', '=', '2')->count();
 
             //Count of All Categories
             $AllCategoriesCount = Category::count();
@@ -341,9 +324,8 @@ class categoriesController extends Controller
         $group_id = "";
         $search_word = $request->q;
 
-        return view("backEnd.Categories",
-            compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "WaitCategoriesCount",
-                "BlockedCategoriesCount", "AllCategoriesCount", "group_id", "search_word"));
+        return view("backEnd.categories.categories",
+            compact("Categories", "GeneralWebmasterSections", "CategoriesGroups", "Countries", "AllCategoriesCount", "group_id", "search_word"));
     }
 
     /**
