@@ -28,9 +28,11 @@
                                 <button type="submit" style="padding-top: 10px;"
                                         class="input-group-addon no-border no-bg pull-left"><i class="fa fa-search"></i>
                                 </button>
-                                <input type="text" style="width: 85%" name="q" required value="{{ $search_word }}"
+                                <input type="text" style="width: 60%" name="q" required value="{{ $search_word }}"
                                        class="form-control no-border no-bg"
                                        placeholder="{{ trans('backLang.searchAllContacts') }}">
+                                <input type="submit"
+                                        class="btn btn-sm success pull-right" style="float: right;margin-top: 5px;" value="Search" />
                             </div>
                             {{Form::close()}}
                         </div>
