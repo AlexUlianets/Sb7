@@ -69,6 +69,11 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/settings', 'SettingsController@edit')->name('settings');
     Route::post('/settings', 'SettingsController@updateSiteInfo')->name('settingsUpdateSiteInfo');
 
+    Route::get('/premium_list/settings/{webmasterId}', 'PremiumListController@index')->name('premiumListSettings');
+    Route::post('/premium_list/store/{webmasterId}', 'PremiumListController@store')->name('premiumListStore');
+    Route::post('/premium_list/update/{webmasterId}', 'PremiumListController@update')->name('premiumListUpdate');
+    Route::post('/premium_list/save_pages/{webmasterId}', 'PremiumListController@savePage')->name('premiumSavePages');
+    Route::get('/premium_list/{webmasterId}/delete/{id}', 'PremiumListController@deletePage')->name('premiumListDelete');
 
     Route::get('/categories', 'categoriesController@index')->name('categories');
     Route::get('/reports', 'reportsController@index')->name('reports');
