@@ -77,6 +77,7 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\RelatedTopic' => $baseDir . '/app/RelatedTopic.php',
+    'App\\Reports' => $baseDir . '/app/Reports.php',
     'App\\Section' => $baseDir . '/app/Section.php',
     'App\\Setting' => $baseDir . '/app/Setting.php',
     'App\\Topic' => $baseDir . '/app/Topic.php',

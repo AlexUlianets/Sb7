@@ -76,7 +76,12 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/premium_list/{webmasterId}/delete/{id}', 'PremiumListController@deletePage')->name('premiumListDelete');
 
     Route::get('/categories', 'categoriesController@index')->name('categories');
+    
     Route::get('/reports', 'reportsController@index')->name('reports');
+    Route::get('/reports/view/{id}', 'reportsController@view')->name('reportsView');
+    Route::get('/reports/delete/{id}', 'reportsController@destroy')->name('reportsDelete');
+    Route::post('/reports/show_entries', 'reportsController@showEntries')->name('reportsShowEntries');
+    Route::post('/reports/search', 'reportsController@reportsSearch')->name('reportsSearch');
 
 
     Route::get('/messages', 'messagesController@index')->name('messages');
