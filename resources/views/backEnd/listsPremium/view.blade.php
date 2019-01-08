@@ -38,7 +38,7 @@
                                     <div class="col-sm-9 d-inline">
                                         <div class="row">
                                             @foreach ( $ListPages as $Page )
-                                                <strong style="margin-left: 10px;" class="primary btn pull-left">{{ $Page->title }} <a href="{{ route('premiumListDelete', [ 'id' => $Page->id, 'webmasterId' => $WebmasterSection->id ]) }}" class="danger">☓</a></strong>    
+                                                <strong style="margin-left: 10px;" class="primary btn pull-left">{{ $Page->title }} <a href="{{ route('premiumListDelete', [ 'id' => $Page->id, 'webmasterId' => $WebmasterSection->id ]) }}" class="danger" style="padding: 3px;border-radius: 2px;">☓</a></strong>    
                                             @endforeach
                                         </div>
                                     </div>
