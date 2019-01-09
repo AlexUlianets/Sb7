@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Setting;
 use App\WebmasterSection;
+use App\PaymentSettings;
 use Auth;
 use File;
 use Illuminate\Http\Request;
@@ -269,6 +270,40 @@ class SettingsController extends Controller
     public function setUploadPath($uploadPath)
     {
         $this->uploadPath = Config::get('app.APP_URL') . $uploadPath;
+    }
+
+    /**
+     * PayPal Settings page
+     *
+     * @return Illuminate\Http\Response
+     */
+    public function paymentSettings()
+    {
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+
+        $PaymentSettings = PaymentSettings::find(1);
+
+        return view( "backEnd.settings.payment", compact( "GeneralWebmasterSections", "PaymentSettings" ) );
+    }
+
+    /**
+     * Store payment settings
+     *
+     * @param Illuminate\Http\Request $request
+     * @return Illuminate\Http\Response
+     */
+    public function updatePaymentSettings(Request $request)
+    {
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+
+        $PaymentSettings = PaymentSettings::find(1);
+        $PaymentSettings->paypal_payment = $request->paypal_payment;
+        $PaymentSettings->paypal_sandbox = $request->paypal_sandbox;
+        $PaymentSettings->email = $request->email;
+        $PaymentSettings->update();
+
+        return redirect()->action( "SettingsController@paymentSettings" )->with( compact( "GeneralWebmasterSections" ) );
+
     }
 
 }

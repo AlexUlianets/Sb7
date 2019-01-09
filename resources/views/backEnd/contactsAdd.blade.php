@@ -1,4 +1,6 @@
 @extends('backEnd.layout')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 @section('content')
     <div class="padding">
@@ -398,7 +400,7 @@
                                                 <div class="avatar w-64 inline">
                                                     <img id="photo_preview"
                                                          src="{{ URL::to('uploads/contacts/profile.jpg') }}"
-                                                         style="opacity: 0.2">
+                                                         style="opacity: 0.2" />
                                                     
                                                         <div class="form-file">
                                                         <input id="photo_file" type="file" name="file" accept="image/*">
@@ -410,7 +412,17 @@
                                                         </div>
                                                     </div>
                                                     </div>
-                                                </div>                                           
+                                                </div>
+
+                                                <!-- <div class="form-group row">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-sm-3 form-control-label">Avatar</label>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <img src="https://news.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.ngsversion.1526587209178.adapt.1900.1.jpg" id="photo" height="300" width="300" />
+                                                    </div>
+                                                </div> -->
+                                    
                                            
                                               <!-- <div class="col-sm-3">
                                                  <a href="http://lotus.kl.com.ua/smartend/public/admin/webmails/create/new/email/qwdqw@ad.qwdqw" style="width: 100%" class="btn white pull-right">
@@ -520,6 +532,7 @@
             </div>
         </div>
     </div>
+    <link rel="stylesheet" href="/css/croppie.min.css">
     <style>
         .app-footer {
             display: none;
@@ -548,6 +561,21 @@
             $('#photo_preview').css("opacity", 1);
         });
     </script>
+    <script>
+    /*    $(document).ready( function() {
+            $('#photo').croppie({
+                viewport: {
+                    width: 200,
+                    heigth: 200,
+                    type: 'circle'
+                },
+                boundary: {
+                    width: 200,
+                    heigth: 200
+                }
+            });
+        }); */
+    </script>       
 @endsection
 @section('footerInclude')
     <script type="text/javascript">
@@ -569,4 +597,5 @@
             $('#photo_preview').css("opacity", 1);
         });
     </script>
+    <script src="/js/croppie.min.js"></script>
 @endsection

@@ -779,4 +779,17 @@ class ContactsController extends Controller
                 "BlockedContactsCount", "AllContactsCount", "search_word"));  
     }
 
+    /**
+     *
+     *
+     *
+     * @return Illuminate\Http\Response
+     */
+    public function testing()
+    {
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+
+        return view('backEnd.testing', compact( "GeneralWebmasterSections" ));
+    }
+
 }

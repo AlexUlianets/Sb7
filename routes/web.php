@@ -83,12 +83,12 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::post('/reports/show_entries', 'reportsController@showEntries')->name('reportsShowEntries');
     Route::post('/reports/search', 'reportsController@reportsSearch')->name('reportsSearch');
 
-
     Route::get('/messages', 'messagesController@index')->name('messages');
     Route::get('/messages/destroy/{id}', 'messagesController@destroy')->name('messagesDestroy');
     Route::post('/messages/show_entries', 'messagesController@showEntries')->name('messagesShowEntries');
     Route::post('/messages/search', 'messagesController@search')->name('messagesSearch');
 
+    Route::get('/testing', 'ContactsController@testing')->name('testing');
 
     // Admin Home
     Route::get('/', 'HomeController@index')->name('adminHome');
@@ -138,6 +138,8 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     // Settings
     Route::get('/settings', 'SettingsController@edit')->name('settings');
     Route::post('/settings', 'SettingsController@updateSiteInfo')->name('settingsUpdateSiteInfo');
+    Route::get('/settings/payment', 'SettingsController@paymentSettings')->name('settingsPayment');
+    Route::post('/settings/payment/update', 'SettingsController@updatePaymentSettings')->name('settingsUpdatePayment');
 
     // Ad. Banners
     Route::get('/banners', 'BannersController@index')->name('Banners');
