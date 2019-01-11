@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Setting;
 use App\WebmasterSection;
 use App\PaymentSettings;
+use App\CdnSettings;
 use Auth;
 use File;
 use Illuminate\Http\Request;
@@ -304,6 +305,37 @@ class SettingsController extends Controller
 
         return redirect()->action( "SettingsController@paymentSettings" )->with( compact( "GeneralWebmasterSections" ) );
 
+    }
+
+    // CDN Settings
+
+    /**
+     * Index of CDN Settings
+     *
+     * @return Illuminate\Http\Response
+     */
+    public function indexCdn()
+    {
+        $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
+
+        $Cdn = CdnSettings::find(1);
+
+        return view( 'backEnd.settings.cdn', compact( "GeneralWebmasterSections", "Cdn" ) );
+    }
+
+    /**
+     * Update CDN Settings
+     * 
+     * @param Illuminate\Http\Request $request
+     * @return Illuminate\Http\Response
+     */
+    public function updateCdn( Request $request )
+    {
+        $Cdn = CdnSettings::find(1);
+        $Cdn->cdn = $request->cdn;
+        $Cdn->update();
+
+        return redirect()->action( 'SettingsController@indexCdn' );
     }
 
 }
