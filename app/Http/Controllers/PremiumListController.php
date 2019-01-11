@@ -14,6 +14,17 @@ use Auth;
 
 class PremiumListController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        // Check Permissions
+        if (@Auth::user()->permissions != 0 && Auth::user()->permissions != 1) {
+            return Redirect::to(route('NoPermission'))->send();
+        }
+    }
+
+    
     /**
      * Settings page of premium list
      *

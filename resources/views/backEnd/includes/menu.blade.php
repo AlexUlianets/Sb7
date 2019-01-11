@@ -432,6 +432,18 @@ $urlAfterRoot = substr($fullPagePath, strpos($fullPagePath, env('BACKEND_PATH'))
                                             <span class="nav-text">{{ trans('backLang.usersPermissions') }}</span>
                                         </a>
                                     </li>
+                                    
+                                    <li>
+                                        <a href="{{ route('settingsPayment') }}">
+                                            <span class="nav-text">Payment Settings</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ route('settingsLanguage') }}">
+                                            <span class="nav-text">Language Settings</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif

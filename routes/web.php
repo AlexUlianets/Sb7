@@ -138,8 +138,18 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     // Settings
     Route::get('/settings', 'SettingsController@edit')->name('settings');
     Route::post('/settings', 'SettingsController@updateSiteInfo')->name('settingsUpdateSiteInfo');
+    
+    // Payment Settings
     Route::get('/settings/payment', 'SettingsController@paymentSettings')->name('settingsPayment');
     Route::post('/settings/payment/update', 'SettingsController@updatePaymentSettings')->name('settingsUpdatePayment');
+
+    // Language Setings
+    Route::get('/settings/language', 'LanguageSettingsController@index')->name('settingsLanguage');
+    Route::get('/settings/language/add', 'LanguageSettingsController@indexAdd')->name('settingsLanguageAdd');
+    Route::post('/settings/language/store', 'LanguageSettingsController@store')->name('settingsLanguageStore');
+    Route::get('/settings/language/edit/{id}', 'LanguageSettingsController@indexUpdate')->name('settingsLanguageEdit');
+    Route::post('/settings/language/update/{id}', 'LanguageSettingsController@update')->name('settingsLanguageUpdate');
+    Route::get('/settings/language/destroy/{id}', 'LanguageSettingsController@destroy')->name('settingsLanguageDestroy');
 
     // Ad. Banners
     Route::get('/banners', 'BannersController@index')->name('Banners');
