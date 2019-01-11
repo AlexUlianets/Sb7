@@ -450,6 +450,12 @@ $urlAfterRoot = substr($fullPagePath, strpos($fullPagePath, env('BACKEND_PATH'))
                                             <span class="nav-text">CDN Settings</span>
                                         </a>
                                     </li>
+
+                                    <li>
+                                        <a href="{{ route('settingsSocial') }}">
+                                            <span class="nav-text">Social Login Settings</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif

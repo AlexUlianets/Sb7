@@ -155,6 +155,10 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/settings/cdn', 'SettingsController@indexCdn')->name('settingsCdn');
     Route::post('/settings/cdn/update', 'SettingsController@updateCdn')->name('settingsCdnUpdate');
 
+    // Social Login Settings
+    Route::get('/settings/social_login', 'SocialLoginSettingsController@index')->name('settingsSocial');
+    Route::post('/settings/social_login/update', 'SocialLoginSettingsController@update')->name('settingsSocialUpdate');
+
     // Ad. Banners
     Route::get('/banners', 'BannersController@index')->name('Banners');
     Route::get('/banners/create/{sectionId}', 'BannersController@create')->name('BannersCreate');
