@@ -15,7 +15,7 @@
                     	<div class="form-horizontal">
                     		<div class="form-group row">
                     			<div class="col-sm-3">
-                    				<label class="col-sm-3 form-control">Enable\Disable CDN</label>
+                    				<label class="col-sm-3 form-control-label">Enable\Disable CDN</label>
                     			</div>
                     			<div class="col-sm-6">
                     				@if ( $Cdn->cdn =='enable' )

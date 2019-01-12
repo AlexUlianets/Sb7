@@ -70,6 +70,16 @@
                                     SEO Settings
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsEmail') }}">
+                                    Email Settings
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsAlert') }}">
+                                    Alert Settings
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -390,9 +390,11 @@ class ComposerStaticInit67bdff0e86fad64f3f66335d21a7f5e6
     );
 
     public static $classMap = array (
+        'AlertSettingsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AlertSettingsTableSeeder.php',
         'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/Facades/NoCaptcha.php',
         'Anhskohbo\\NoCaptcha\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptcha.php',
         'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',
+        'App\\AlertSettings' => __DIR__ . '/../..' . '/app/AlertSettings.php',
         'App\\AnalyticsPage' => __DIR__ . '/../..' . '/app/AnalyticsPage.php',
         'App\\AnalyticsVisitor' => __DIR__ . '/../..' . '/app/AnalyticsVisitor.php',
         'App\\AttachFile' => __DIR__ . '/../..' . '/app/AttachFile.php',
@@ -420,6 +422,7 @@ class ComposerStaticInit67bdff0e86fad64f3f66335d21a7f5e6
         'App\\Http\\Controllers\\BannersController' => __DIR__ . '/../..' . '/app/Http/Controllers/BannersController.php',
         'App\\Http\\Controllers\\ContactsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactsController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\EmailSettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmailSettingsController.php',
         'App\\Http\\Controllers\\EventsController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventsController.php',
         'App\\Http\\Controllers\\FrontendHomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrontendHomeController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',

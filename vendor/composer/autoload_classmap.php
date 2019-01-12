@@ -6,9 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AlertSettingsTableSeeder' => $baseDir . '/database/seeds/AlertSettingsTableSeeder.php',
     'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha' => $vendorDir . '/anhskohbo/no-captcha/src/Facades/NoCaptcha.php',
     'Anhskohbo\\NoCaptcha\\NoCaptcha' => $vendorDir . '/anhskohbo/no-captcha/src/NoCaptcha.php',
     'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => $vendorDir . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',
+    'App\\AlertSettings' => $baseDir . '/app/AlertSettings.php',
     'App\\AnalyticsPage' => $baseDir . '/app/AnalyticsPage.php',
     'App\\AnalyticsVisitor' => $baseDir . '/app/AnalyticsVisitor.php',
     'App\\AttachFile' => $baseDir . '/app/AttachFile.php',
@@ -36,6 +38,7 @@ return array(
     'App\\Http\\Controllers\\BannersController' => $baseDir . '/app/Http/Controllers/BannersController.php',
     'App\\Http\\Controllers\\ContactsController' => $baseDir . '/app/Http/Controllers/ContactsController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\EmailSettingsController' => $baseDir . '/app/Http/Controllers/EmailSettingsController.php',
     'App\\Http\\Controllers\\EventsController' => $baseDir . '/app/Http/Controllers/EventsController.php',
     'App\\Http\\Controllers\\FrontendHomeController' => $baseDir . '/app/Http/Controllers/FrontendHomeController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',

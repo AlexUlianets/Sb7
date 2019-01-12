@@ -171,6 +171,10 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/settings/email', 'EmailSettingsController@index')->name('settingsEmail');
     Route::post('/settings/email/update', 'EmailSettingsController@update')->name('settingsEmailUpdate');
 
+    // Alert Settings
+    Route::get('/settings/alert', 'AlertController@index')->name('settingsAlert');
+    Route::post('/settings/alert/update', 'AlertController@update')->name('settingsAlertUpdate');
+
     // Ad. Banners
     Route::get('/banners', 'BannersController@index')->name('Banners');
     Route::get('/banners/create/{sectionId}', 'BannersController@create')->name('BannersCreate');
