@@ -163,6 +163,14 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/settings/images', 'ImagesSettingsController@index')->name('settingsImages');
     Route::post('/settings/images/update', 'ImagesSettingsController@update')->name('settingsImagesUpdate');
 
+    // SEO Settings
+    Route::get('/settings/seo', 'SeoSettingsController@index')->name('settingsSeo');
+    Route::post('/settings/seo/update', 'SeoSettingsController@update')->name('settingsSeoUpdate');
+
+    // Email Settings 
+    Route::get('/settings/email', 'EmailSettingsController@index')->name('settingsEmail');
+    Route::post('/settings/email/update', 'EmailSettingsController@update')->name('settingsEmailUpdate');
+
     // Ad. Banners
     Route::get('/banners', 'BannersController@index')->name('Banners');
     Route::get('/banners/create/{sectionId}', 'BannersController@create')->name('BannersCreate');

@@ -59,6 +59,17 @@
                                             class="material-icons">&#xe8c6;</i>
                                     &nbsp; {!!  trans('backLang.siteStatusSettings') !!}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsImages') }}">
+                                &#xe8c6;
+                                    Images Settings
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsSeo') }}">
+                                    SEO Settings
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
