@@ -14,10 +14,17 @@ class PaymentSettingsTableSeeder extends Seeder
     {
         DB::table('payment_settings')->insert(
             array(
-                'id' => '1',
-                'paypal_payment' => 'false',
-                'paypal_sandbox' => 'false',
-                'email' => ''
+                'id' => 1,
+                'email' => '',
+                'live_client_id' => '',
+                'live_client_secret' => '',
+                'live_access_token' => '',
+                'live_access_token_expiry' => '',
+                'sandbox_mode' => 'disable',
+                'sandbox_client_id' => '',
+                'sandbox_client_secret' => '',
+                'sandbox_access_token' => '',
+                'sandbox_access_token_expiry' => ''
             )
         );
     }

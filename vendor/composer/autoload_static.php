@@ -442,6 +442,7 @@ class ComposerStaticInit67bdff0e86fad64f3f66335d21a7f5e6
         'App\\Http\\Controllers\\SettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SettingsController.php',
         'App\\Http\\Controllers\\SiteMapController' => __DIR__ . '/../..' . '/app/Http/Controllers/SiteMapController.php',
         'App\\Http\\Controllers\\SocialLoginSettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialLoginSettingsController.php',
+        'App\\Http\\Controllers\\SubscriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubscriptionController.php',
         'App\\Http\\Controllers\\TopicsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TopicsController.php',
         'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Controllers\\WebmailsController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebmailsController.php',

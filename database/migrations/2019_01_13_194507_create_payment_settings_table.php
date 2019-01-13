@@ -15,12 +15,18 @@ class CreatePaymentSettingsTable extends Migration
     {
         Schema::create('payment_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('paypal_payment');
-            $table->string('paypal_sandbox');
             $table->string('email');
+            $table->string('live_client_id');
+            $table->string('live_client_secret');
+            $table->string('live_access_token');
+            $table->string('live_access_token_expiry');
+            $table->string('sandbox_mode');
+            $table->string('sandbox_client_id');
+            $table->string('sandbox_client_secret');
+            $table->string('sandbox_access_token');
+            $table->string('sandbox_access_token_expiry');
             $table->timestamps();
         });
-
     }
 
     /**

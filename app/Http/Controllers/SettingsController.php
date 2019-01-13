@@ -298,9 +298,16 @@ class SettingsController extends Controller
         $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
 
         $PaymentSettings = PaymentSettings::find(1);
-        $PaymentSettings->paypal_payment = $request->paypal_payment;
-        $PaymentSettings->paypal_sandbox = $request->paypal_sandbox;
         $PaymentSettings->email = $request->email;
+        $PaymentSettings->live_client_id = $request->live_client_id;
+        $PaymentSettings->live_client_secret = $request->live_client_secret;
+        $PaymentSettings->live_access_token = $request->live_access_token;
+        $PaymentSettings->live_access_token_expiry = $request->live_access_token_expiry;
+        $PaymentSettings->sandbox_mode = $request->sandbox_mode;
+        $PaymentSettings->sandbox_client_id = $request->sandbox_client_id;
+        $PaymentSettings->sandbox_client_secret = $request->sandbox_client_secret;
+        $PaymentSettings->sandbox_access_token = $request->sandbox_access_token;
+        $PaymentSettings->sandbox_access_token_expiry = $request->sandbox_access_token_expiry;
         $PaymentSettings->update();
 
         return redirect()->action( "SettingsController@paymentSettings" )->with( compact( "GeneralWebmasterSections" ) );

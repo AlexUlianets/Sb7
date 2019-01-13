@@ -58,6 +58,7 @@ return array(
     'App\\Http\\Controllers\\SettingsController' => $baseDir . '/app/Http/Controllers/SettingsController.php',
     'App\\Http\\Controllers\\SiteMapController' => $baseDir . '/app/Http/Controllers/SiteMapController.php',
     'App\\Http\\Controllers\\SocialLoginSettingsController' => $baseDir . '/app/Http/Controllers/SocialLoginSettingsController.php',
+    'App\\Http\\Controllers\\SubscriptionController' => $baseDir . '/app/Http/Controllers/SubscriptionController.php',
     'App\\Http\\Controllers\\TopicsController' => $baseDir . '/app/Http/Controllers/TopicsController.php',
     'App\\Http\\Controllers\\UsersController' => $baseDir . '/app/Http/Controllers/UsersController.php',
     'App\\Http\\Controllers\\WebmailsController' => $baseDir . '/app/Http/Controllers/WebmailsController.php',
