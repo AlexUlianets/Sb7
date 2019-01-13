@@ -180,8 +180,12 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::post('/settings/other/update', 'OtherSettingsController@update')->name('otherSettingsUpdate');
 
     // Push Notifications Settings
-    Route::get('/settings/notifications', 'PushNotificationsController@indexSettings')->name('setingsNotifications');
+    Route::get('/settings/notifications', 'PushNotificationsController@indexSettings')->name('settingsNotifications');
     Route::post('/settings/notifications/update', 'PushNotificationsController@updateSettings')->name('settingsNotificationsUpdate');
+
+    // Google Analytics Settings
+    Route::get('/settings/google_analytics', 'GoogleAnalyticsController@indexSettings')->name('settingsGoogleAnalytics');
+    Route::post('/settings/google_analytics/update', 'GoogleAnalyticsController@updateSettings')->name('settingsGoogleAnalyticsUpdate');
 
     // Ad. Banners
     Route::get('/banners', 'BannersController@index')->name('Banners');

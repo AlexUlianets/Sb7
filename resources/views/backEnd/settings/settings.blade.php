@@ -80,7 +80,21 @@
                                     Alert Settings
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsNotifications') }}">
+                                    Push Notifications Settings
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsGoogleAnalytics') }}">
+                                    Google Analytics Settings
+                                </a>
+                            </li>
                         </ul>
+
+                        
                     </div>
                 </div>
             </div>
