@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubscriptionSettingsTable extends Migration
+class CreatePushNotificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateSubscriptionSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subscription_settings', function (Blueprint $table) {
+        Schema::create('push_notifications', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('default_notification');
+            $table->string('app_id');
+            $table->string('sender_id');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateSubscriptionSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subscription_settings');
+        Schema::dropIfExists('push_notifications');
     }
 }
