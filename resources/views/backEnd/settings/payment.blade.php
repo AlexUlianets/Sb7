@@ -6,14 +6,13 @@
 			<div class="p-a-md dker">
 				<h3>Payment Settings</h3>
 			</div>
-		</div>
 
 		<div class="row-col row-col-xs">
 			<div class="col-sm-4 col-md-3 bg b-r">
                     <div class="row-col">
                         <div class="p-a-xs b-b">
 						{{ Form::open([ 'route' => ['settingsUpdatePayment'], 'method' => 'POST' ]) }}
-							<div class="form-group row">
+							<div class="form-group row" style="margin-top: 20px;">
 								<div class="col-sm-3">
 									<label class="form-control-label">Enable/Disable PayPal payment</label>
 								</div>
@@ -94,13 +93,14 @@
 
 							<div class="form-group row">
 								<div class="col-sm-3">
-									<input type="submit" class="form-control btn btn-sm success" value="Save" />
+									<input type="submit" style="margin-left: 30px;" class="form-control btn btn-sm success" value="Save" />
 								</div>
 							</div>
 						{{ Form::close() }}
 						</div>
 					</div>
 			</div>
+		</div>
 		</div>
 	</div>
 @endsection

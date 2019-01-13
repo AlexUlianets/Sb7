@@ -61,35 +61,66 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link block" href="{{ route('settingsImages') }}">
-                                &#xe8c6;
+                                <i class="material-icons">account_box</i>
                                     Images Settings
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link block" href="{{ route('settingsSeo') }}">
+                                <i class="material-icons">search</i>
                                     SEO Settings
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link block" href="{{ route('settingsEmail') }}">
-                                    Email Settings
+                                    ✉ Email Settings
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link block" href="{{ route('settingsAlert') }}">
-                                    Alert Settings
+                                <a class="nav-link block" href="{{ route('settingsAlert') }}">  
+                                   📦 Alert Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link block" href="{{ route('settingsNotifications') }}">
-                                    Push Notifications Settings
+                                    📮 Push Notifications Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link block" href="{{ route('settingsGoogleAnalytics') }}">
-                                    Google Analytics Settings
+                                    📈 Google Analytics Settings
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsPayment') }}">
+                                    💰 Payment Settings
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsLanguage') }}">
+                                    🎫 Language Settings
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsCdn') }}">
+                                    🗺 CDN Settings
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsSocial') }}">
+                                    🔮 Social Login Settings
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link block" href="{{ route('settingsSubscription') }}">
+                                    🗃 Subscription Settings
                                 </a>
                             </li>
                         </ul>

@@ -16,7 +16,7 @@
 
                         	{{ Form::open(['route' => ['settingsGoogleAnalyticsUpdate'], 'method' => 'POST' ]) }}
 
-                        		<div class="form-group row">
+                        		<div class="form-group row" style="margin-top: 20px;">
                         			<div class="col-sm-3">
                         				<label class="form-control-label">Tracking code</label>
                         			</div>

@@ -13,7 +13,7 @@
                     <div class="row-col">
                     	{{ Form::open(['route' => ['settingsCdnUpdate'], 'method' => 'POST' ]) }}
                     	<div class="form-horizontal">
-                    		<div class="form-group row">
+                    		<div class="form-group row" style="margin-top: 20px;">
                     			<div class="col-sm-3">
                     				<label class="col-sm-3 form-control-label">Enable\Disable CDN</label>
                     			</div>
@@ -51,7 +51,7 @@
 
                     		<div class="form-group row">
                     			<div class="col-sm-3" style="margin-left: 30px;">
-                    				<input type="submit" class="btn btn-sm success" value="Save" />
+                    				<input type="submit" class="btn btn-sm success form-control" value="Save" />
                     			</div>
                     		</div>
 

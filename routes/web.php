@@ -187,6 +187,10 @@ Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::get('/settings/google_analytics', 'GoogleAnalyticsController@indexSettings')->name('settingsGoogleAnalytics');
     Route::post('/settings/google_analytics/update', 'GoogleAnalyticsController@updateSettings')->name('settingsGoogleAnalyticsUpdate');
 
+    // Subscription Settings
+    Route::get('/settings/subscription', 'SubscriptionController@indexSettings')->name('settingsSubscription');
+    Route::post('/settings/subscription/update', 'SubscriptionController@updateSettings')->name('settingsSubscriptionUpdate');
+
     // Ad. Banners
     Route::get('/banners', 'BannersController@index')->name('Banners');
     Route::get('/banners/create/{sectionId}', 'BannersController@create')->name('BannersCreate');

@@ -9,7 +9,6 @@
 			<div class="p-a-md dker">
 				<h3>Email Settings</h3>
 			</div>
-		</div>
 
 		<div class="row-col row-col-xs">
 
@@ -18,7 +17,7 @@
                         <div class="p-a-xs b-b">
                         	
                         	{{ Form::open(['route' => ['settingsEmailUpdate'], 'method' => 'POST']) }}
-                        	<div class="form-group row">
+                        	<div class="form-group row" style="margin-top: 20px;">
                         		<div class="col-sm-3">
                         			<label class="form-control-label">Inquery email</label> 
                         		</div>
@@ -48,7 +47,7 @@
 
                         	<div class="form-group row">
                         		<div class="col-sm-3">
-                        			<input type="submit" class="btn form-control success" value="Save" />
+                        			<input type="submit" style="margin-left: 30px;" class="btn form-control success" value="Save" />
                         		</div>
                         	</div>
 
@@ -57,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-
+                </div>
         </div>
 	</div>
 @endsection

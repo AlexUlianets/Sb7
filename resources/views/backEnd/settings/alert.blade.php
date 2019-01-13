@@ -15,7 +15,7 @@
                         <div class="p-a-xs b-b">
                      {{ Form::open([ 'route' => ['settingsAlertUpdate'], 'method' => 'POST' ]) }}
 
-                     	<div class="form-group row">
+                     	<div class="form-group row" style="margin-top: 20px;">
                     			<div class="col-sm-4">
                     				<label class="form-control-label">Create welcome(email)</label>
                     			</div>

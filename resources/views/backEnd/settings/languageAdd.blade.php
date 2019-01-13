@@ -6,9 +6,9 @@
         	<div class="col-sm-6 col-md-7">
                     <div class="row-col">
                         <div class="p-a-sm">
-
+                              <div class="box">
                               @if ( !empty( $LanguageToEdit ) )
-                              <div class="form-horizontal">
+                              <div class="form-horizontal" style="padding-top: 20px;padding-bottom: 10px;">
                                     {{ Form::open([ 'route' => ['settingsLanguageUpdate', $LanguageToEdit->id], 'method' => 'POST' ]) }}
                                           
                                           <div class="form-group row">
@@ -109,14 +109,14 @@
 
                                           <div class="form-group row">
                                                 <div class="col-sm-3">
-                                                      <input type="submit" value="Add" class="form-control btn btn-sm success" />
+                                                      <input type="submit" value="Add" class="form-control btn btn-sm success" style="margin-left: 30px;" />
                                                 </div>
                                           </div>
 
                                     {{ Form::close() }}
                               </div>
                               @else
-                        	<div class="form-horizontal">
+                        	<div class="form-horizontal" style="padding-top: 20px;padding-bottom: 10px;">
                         		{{ Form::open([ 'route' => ['settingsLanguageStore'], 'method' => 'POST' ]) }}
                         			
                         			<div class="form-group row">
@@ -203,14 +203,14 @@
 
                         			<div class="form-group row">
                         				<div class="col-sm-3">
-                        					<input type="submit" value="Add" class="form-control btn btn-sm success" />
+                        					<input type="submit" value="Add" class="form-control btn btn-sm success" style="margin-left: 30px;" />
                         				</div>
                         			</div>
 
                         		{{ Form::close() }}
                         	</div>
                               @endif
-                              
+                              </div>
                         </div>
                     </div>
             </div>

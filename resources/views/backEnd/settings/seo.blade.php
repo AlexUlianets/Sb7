@@ -16,7 +16,7 @@
 
                         {{ Form::open(['route' => ['settingsSeoUpdate'], 'method' => 'POST' ]) }}
 
-                        	<div class="form-group row">
+                        	<div class="form-group row" style="margin-top: 20px;">
                         		<div class="col-sm-3">
                         			<label class="form-control-label">Show site name after page title, sepatate with "-"?</label>
                         		</div>

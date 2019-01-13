@@ -15,7 +15,7 @@
 					{{ Form::open(['route' => ['settingsSocialUpdate'], 'method' => 'POST' ]) }}	
 					
 
-						<div class="form-group row">
+						<div class="form-group row" style="margin-top: 20px;">
 							<div class="col-sm-3">
 								<label class="form-control-label">Enable\Disable all social login</label>
 							</div>
@@ -220,7 +220,7 @@
 
 						<div class="form-group row">
 							<div class="col-sm-3">
-								<input type="submit" class="btn btn-sm success form-control" value="Save" />
+								<input type="submit" style="margin-left: 30px;" class="btn btn-sm success form-control" value="Save" />
 							</div>
 						</div>
 
