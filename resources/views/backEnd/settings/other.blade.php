@@ -1,6 +1,7 @@
 @extends('backEnd.layout')
 
 @section('content')
+<a href="{{ route('settings') }}" class="pull-left btn btn-sm" style="margin-left: 30px;">< Back to settings</a>
 	<script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/codemirror/CodeMirror/master/lib/codemirror.css">
         <script type="text/javascript" src="https://cdn.rawgit.com/codemirror/CodeMirror/master/lib/codemirror.js"></script>

@@ -3,7 +3,7 @@
 @section('content')
 	 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
-
+  <a href="{{ route('settings') }}" class="pull-left btn btn-sm" style="margin-left: 30px;">< Back to settings</a>
 	<div class="padding">
 		<div class="box">
 			<div class="p-a-md dker">

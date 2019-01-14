@@ -1,9 +1,9 @@
 @extends('backEnd.layout')
 
 @section('content')
+    <a href="{{ route('settings') }}" class="pull-left btn btn-sm" style="margin-left: 30px;">< Back to settings</a>
 	<div class="padding">
 		<div class="box">
-
 			<div class="p-a-md dker">
 				<h5>Alert Settings</h5>
 			</div>
